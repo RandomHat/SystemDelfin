@@ -13,8 +13,9 @@ public class MemberList {
 
     // Map of members
     private final Map<Integer, Member> memberList = new HashMap<>();
-
-
+    public List<Member> getMemberList() {
+        return memberList;
+    }
     public Member createMember(String name, String dateOfBirth, String gender, boolean isActiveMember, int phone, String email, String address){
         Member member = new Member(name, dateOfBirth, gender, isActiveMember, phone, email, address, memberIDCounter);
         memberIDCounter++;
