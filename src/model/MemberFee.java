@@ -1,6 +1,10 @@
 package model;
 
 public class MemberFee {
+
+    /* Author Simon Roswall Jørgensen */
+
+    private int memberFee;
     private final int PASSIVE_FEE = 500;
     private final int JUNIOR_FEE = 1000;
     private final int SENIOR_FEE = 1600;
