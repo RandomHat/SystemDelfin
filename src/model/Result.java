@@ -2,7 +2,7 @@ package model;
 
 import java.util.Date;
 
-public class Result {
+public abstract class Result {
     int time;
     Date date;
 

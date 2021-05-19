@@ -2,7 +2,7 @@ package model;
 
 import java.util.Date;
 
-public class TournamentResult extends Result{
+public class TournamentResult extends Result implements Comparable<TournamentResult>{
 
     private int placement;
     private String tournament;
@@ -13,8 +13,28 @@ public class TournamentResult extends Result{
         this.tournament = tournament;
     }
 
+    public int getPlacement(){
+        return placement;
+    }
 
+    public String getTournament(){
+        return tournament;
+    }
 
+    @Override
+    public int compareTo(TournamentResult o) {
+        if(placement > o.placement){
+            return 1;
+        }else if(placement < o.placement){
+            return -1;
+        } else
+        return 0;
+    }
 
-
+    @Override
+    public String toString(){
+        return "Tournament: " + tournament + "\n" +
+                "Placement: " + placement + "\n" +
+                super.toString();
+    }
 }
