@@ -3,17 +3,17 @@ package model;
 import java.util.Date;
 
 public abstract class Result{
-    private double time;
+    private int time;
     private Date date;
 
-    public Result(double time, Date date){
+    public Result(int time, Date date){
         this.time = time;
         this.date = date;
     }
 
     //public abstract int compareResults(TournamentResult o, TrainingResult j);
 
-    public double getTime() {
+    public int getTime() {
         return time;
     }
 
