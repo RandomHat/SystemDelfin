@@ -21,14 +21,19 @@ public class TournamentResult extends Result implements Comparable<TournamentRes
         return tournament;
     }
 
+    public void setPlacement(int placement) {
+        this.placement = placement;
+    }
+
     @Override
     public int compareTo(TournamentResult o) {
-        if(placement > o.placement){
-            return 1;
-        }else if(placement < o.placement){
-            return -1;
-        } else
-        return 0;
+
+            if (super.getTime() > o.getTime()) {
+                return 1;
+            } else if (super.getTime() < o.getTime()) {
+                return -1;
+            } else
+                return 0;
     }
 
     @Override
@@ -37,13 +42,4 @@ public class TournamentResult extends Result implements Comparable<TournamentRes
                 "Placement: " + placement + "\n" +
                 super.toString();
     }
-
-    /*
-    @Override
-    public int compareResults(TournamentResult o, TrainingResult j) {
-        o.getTime();
-        return 0;
-    }
-    */
-
 }
