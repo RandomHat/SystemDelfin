@@ -7,7 +7,7 @@ public class TournamentResult extends Result implements Comparable<TournamentRes
     private int placement;
     private String tournament;
 
-    TournamentResult(int time, Date date, int placement, String tournament){
+    TournamentResult(double time, Date date, int placement, String tournament){
         super(time, date);
         this.placement = placement;
         this.tournament = tournament;
@@ -37,4 +37,13 @@ public class TournamentResult extends Result implements Comparable<TournamentRes
                 "Placement: " + placement + "\n" +
                 super.toString();
     }
+
+    /*
+    @Override
+    public int compareResults(TournamentResult o, TrainingResult j) {
+        o.getTime();
+        return 0;
+    }
+    */
+
 }
