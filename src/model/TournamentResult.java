@@ -7,8 +7,8 @@ public class TournamentResult extends Result implements Comparable<TournamentRes
     private int placement;
     private String tournament;
 
-    TournamentResult(int time, Date date, int placement, String tournament){
-        super(time, date);
+    TournamentResult(int time, Date date, SwimDiscipline discipline, int placement, String tournament){
+        super(time, date, discipline);
         this.placement = placement;
         this.tournament = tournament;
     }
