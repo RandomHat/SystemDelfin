@@ -1,7 +1,7 @@
 package model;
 
 import java.util.Date;
-
+//@Author Mark Kaplan Hansen
 public abstract class Result implements Comparable<Result>{
     private int time;
     private Date date;

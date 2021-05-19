@@ -1,7 +1,7 @@
 package model;
 
 import java.util.Date;
-
+//@Author Mark Kaplan Hansen
 public class TournamentResult extends Result{
 
     private int placement;
