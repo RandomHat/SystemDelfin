@@ -10,6 +10,10 @@ public class MemberFee {
     private final int SENIOR_FEE = 1600;
     private final double PENSION_REBATE_MULTIPLIER = 0.25;
 
+    MemberFee(int calculatedMemberFee){
+        this.memberFee = calculatedMemberFee;
+    }
+
     public int getJUNIOR_FEE(){
         return JUNIOR_FEE;
     }
