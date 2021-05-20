@@ -9,15 +9,9 @@ public class MemberController {
 
     public Member createMember(String name, String dateOfBirth, String gender, boolean isActiveMember, int phone, String email, String address){
         Member member = new Member(name, dateOfBirth, gender, isActiveMember, phone, email, address, 6);
-        memberIDCounter++;
-        return member;
+        memberList.addMember(member);
     }
 
-
-
-    public void addMember(String name, String dateOfBirth, String gender, boolean isActiveMember, ) {
-
-    }
 
 public static void editMember() {
 //skal bruge en masse settere
