@@ -17,6 +17,18 @@ public class ViewController {
         String name = newmember.nextLine();
         System.out.println("Enter Birthday: ");
         String birthday = newmember.nextLine();
+        System.out.println("Enter Gender");
+        String gender = newmember.nextLine();
+        System.out.println("Is the member active inactive?");
+        Boolean active = newmember.nextBoolean();
+        System.out.println("Enter phone number");
+        Integer phonenumber = newmember.nextInt();
+        System.out.println("Enter email address");
+        String Email =  newmember.nextLine();
+        System.out.println("Enter Address");
+        String address = newmember.nextLine();
+        memberController.createMember(name, birthday, gender, active, phonenumber, Email, address);
+
 
     }
 
