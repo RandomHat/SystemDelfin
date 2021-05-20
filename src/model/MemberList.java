@@ -3,6 +3,7 @@ package model;
 import java.util.*;
 
 public class MemberList {
+    // @Author Simon Roswall Jørgensen
 
     // Singleton pattern?
     private MemberList(){
@@ -19,7 +20,7 @@ public class MemberList {
     // Map of members
     private final Map<Integer, Member> memberList = new HashMap<>();
     public Collection<Member> getMemberList() {
-        return memberList.;
+        return memberList.values();
     }
 
     public void removeMember(int memberID){

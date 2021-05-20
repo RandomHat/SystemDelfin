@@ -3,7 +3,6 @@ package controller;
 import model.Member;
 import model.MemberList;
 
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class MemberController {
@@ -12,8 +11,12 @@ public class MemberController {
 
     public void listOfMembers(){
         for (Member currentMember: memberList.getMemberList()){
-
+            System.out.println(currentMember);
         }
+    }
+
+    public Member getMember(int memberID){
+        return memberList.getMember(memberID);
     }
 
     public void showMember(int memberID){
