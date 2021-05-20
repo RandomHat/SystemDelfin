@@ -77,7 +77,7 @@ public class ViewController {
         String Email =  newmember.nextLine();
         System.out.println("Enter Address");
         String address = newmember.nextLine();
-        memberController.createMember(name, birthday, gender, active, phonenumber, Email, address);
+        memberController.addMember(name, birthday, gender, active, phonenumber, Email, address);
     }
     //#endregion
 
