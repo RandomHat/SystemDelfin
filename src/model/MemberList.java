@@ -9,18 +9,17 @@ public class MemberList {
     }
     private static final MemberList instance = new MemberList();
 
+    public static MemberList getInstance() {
+        return instance;
+    }
+
     // Has a counter to keep user ID's unique
     int memberIDCounter = 1;
 
     // Map of members
     private final Map<Integer, Member> memberList = new HashMap<>();
     public Collection<Member> getMemberList() {
-        return memberList.values();
-    }
-    public Member createMember(String name, String dateOfBirth, String gender, boolean isActiveMember, int phone, String email, String address){
-        Member member = new Member(name, dateOfBirth, gender, isActiveMember, phone, email, address, memberIDCounter);
-        memberIDCounter++;
-        return member;
+        return memberList.;
     }
 
     public void removeMember(int memberID){
@@ -29,13 +28,14 @@ public class MemberList {
 
     public void addMember(Member member){
         memberList.put(member.getId(), member);
+        memberIDCounter++;
+    }
+
+    public int getMemberIDCounter(){
+        return memberIDCounter;
     }
 
     public Member getMember(int memberID){
         return memberList.get(memberID);
-    }
-
-    public static MemberList getInstance() {
-        return instance;
     }
 }
