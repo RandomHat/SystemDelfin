@@ -5,7 +5,8 @@ import java.util.*;
 public class MemberList {
 
     // Singleton pattern?
-    private MemberList(){}
+    private MemberList(){
+    }
     private static final MemberList instance = new MemberList();
 
     // Has a counter to keep user ID's unique
@@ -13,8 +14,8 @@ public class MemberList {
 
     // Map of members
     private final Map<Integer, Member> memberList = new HashMap<>();
-    public List<Member> getMemberList() {
-        return memberList;
+    public Collection<Member> getMemberList() {
+        return memberList.values();
     }
     public Member createMember(String name, String dateOfBirth, String gender, boolean isActiveMember, int phone, String email, String address){
         Member member = new Member(name, dateOfBirth, gender, isActiveMember, phone, email, address, memberIDCounter);

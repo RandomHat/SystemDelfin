@@ -1,8 +1,8 @@
 package model;
 
 import java.util.Date;
-
-public class TournamentResult extends Result implements Comparable<TournamentResult>{
+//@Author Mark Kaplan Hansen
+public class TournamentResult extends Result{
 
     private int placement;
     private String tournament;
@@ -26,7 +26,7 @@ public class TournamentResult extends Result implements Comparable<TournamentRes
     }
 
     @Override
-    public int compareTo(TournamentResult o) {
+    public int compareTo(Result o) {
 
             if (super.getTime() > o.getTime()) {
                 return 1;

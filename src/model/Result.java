@@ -1,8 +1,8 @@
 package model;
 
 import java.util.Date;
-
-public abstract class Result{
+//@Author Mark Kaplan Hansen
+public abstract class Result implements Comparable<Result>{
     private int time;
     private Date date;
     private SwimDiscipline discipline;
@@ -13,16 +13,29 @@ public abstract class Result{
         this.discipline = discipline;
     }
 
-    //public abstract int compareResults(TournamentResult o, TrainingResult j);
-
     public int getTime() {
         return time;
     }
-
     public Date getDate() {
         return date;
     }
     public SwimDiscipline getDiscipline(){
         return discipline;
     }
+
+    @Override
+    public int compareTo(Result o) {
+
+        if (time > o.getTime()) {
+            return 1;
+        } else if (time < o.getTime()) {
+            return -1;
+        } else
+            return 0;
+    }
+    @Override
+    public String toString(){
+        return "LUL";
+    }
+
 }
