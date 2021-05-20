@@ -30,6 +30,24 @@ public class ViewController {
         memberController.addMember(name, birthday, gender, active, phonenumber, Email, address);
     }
 
+    public void EditMember(){
+        Scanner editmember = new Scanner(System.in);
+        System.out.println("Enter memberID");
+        Integer ID = editmember.nextInt();
+        memberController.showMember(ID);
+        System.out.println("Choose the information you want to change");
+        System.out.println("[1] Name");
+        System.out.println("[2] Date of birth");
+        System.out.println("[3] Gender");
+        System.out.println("[4] Activity status");
+        System.out.println("[5] Phone number");
+        System.out.println("[6] Email");
+        System.out.println("[7] Adress");
+        System.out.println("[8] Cancel and return to main menu");
+        Integer choice = editmember.nextInt();
+        memberController.editMember(ID, choice);
+    }
+
     public void mainMenu(){
 
         System.out.println("[1] Show members"); //TODO lave en liste der kan printes i MemberController som indeholder Navn, Alder og Exerciser/Comp Swimmer
