@@ -1,9 +1,15 @@
 package View;
 
+import controller.CompetitionController;
+import controller.MemberController;
+
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class ViewController {
+
+    private final CompetitionController competitionController = new CompetitionController();
+    private final MemberController memberController = new MemberController();
 
     public void AddMember() throws FileNotFoundException {
         Scanner newmember = new Scanner(System.in);
@@ -54,6 +60,21 @@ public class ViewController {
         System.out.println("[5] Back to Main Menu");
     }
 
+    public void menu(){
+        Scanner menuChoice = new Scanner(System.in);
+        boolean running = true;
+        while(running) {
+            mainMenu();
+            switch (menuChoice.nextInt()) {
 
+                case 1:
+                    memberController.listOfMembers();
+                    memberInfo();
+
+
+
+            }
+        }
+    }
 
 }
