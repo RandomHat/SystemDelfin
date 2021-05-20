@@ -11,7 +11,7 @@ public class ViewController {
     private final CompetitionController competitionController = new CompetitionController();
     private final MemberController memberController = new MemberController();
 
-    public void AddMember() throws FileNotFoundException {
+    public void AddExerciser(){
         Scanner newmember = new Scanner(System.in);
         System.out.println("Enter name: ");
         String name = newmember.nextLine();
