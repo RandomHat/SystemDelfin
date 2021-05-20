@@ -12,14 +12,14 @@ public class MemberController {
 
 public static void AddMember() throws FileNotFoundException{
     Scanner newmember = new Scanner(System.in);
-    System.out.println("Enter name: ");
+    System.out.println("Enter nae: ");
     String name = newmember.nextLine();
     System.out.println("Enter Birthday: ");
     String birthday = newmember.nextLine();
 }
 
 public static void EditMember() throws FileNotFoundException{
-
+//skal bruge en masse settere
 
 }
 
