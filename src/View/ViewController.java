@@ -70,6 +70,9 @@ public class ViewController {
         System.out.println("[5] Back to Main Menu");
     }
 
+    /**
+     * Main menu Switch
+     */
     public void menu(){
         Scanner menuChoice = new Scanner(System.in);
         boolean running = true;
@@ -81,7 +84,22 @@ public class ViewController {
                     memberController.listOfMembers();
                     memberInfo();
 
+            }
+        }
+    }
 
+    /**
+     * showMembers Switch
+     */
+    public void showMembers(){
+        Scanner menuChoice = new Scanner(System.in);
+        boolean running = true;
+        while(running){
+            switch (menuChoice.nextInt()) {
+
+                case 1:
+                    int memberID = menuChoice.nextInt();
+                    memberController.showMemberDetails(memberID);
 
             }
         }
