@@ -257,7 +257,7 @@ public class ViewController {
         String name = memberController.getMember(memberID).getName();
         String dateOfBirth = memberController.getMember(memberID).getDateOfBirth();
         String gender = memberController.getMember(memberID).getGender();
-        Boolean isActiveMember = memberController.getMember(memberID).getIsActiveMember();
+        Boolean isActiveMember = memberController.getMember(memberID).isActiveMember();
         int phone = memberController.getMember(memberID).getPhone();
         String email = memberController.getMember(memberID).getEmail();
         String adress = memberController.getMember(memberID).getAdress();
