@@ -26,7 +26,6 @@ public class ViewController {
         System.out.println("[2] Add new member");
         System.out.println("[3] Coach options");
         System.out.println("[4] Exit program" );
-
     }
 
     /**
@@ -148,7 +147,6 @@ public class ViewController {
                 distance = integerInput();
                 System.out.println("Time: ");
                 time = doubleInput();
-                System.out.println("Date: ");
                 System.out.println("Year: ");
                 year = integerInput();
                 System.out.println("Month: ");
