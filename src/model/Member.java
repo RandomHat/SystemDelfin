@@ -4,7 +4,7 @@ public class Member {
     private String name;
     private String dateofbirth;
     private String gender;
-    private boolean isactivemember;
+    private boolean activeMember;
     private int phone;
     private String email;
     private String adress;
@@ -15,7 +15,7 @@ public Member(String name, String dateofbirth, String gender, boolean isactiveme
     this.name = name;
     this.dateofbirth = dateofbirth;
     this.gender = gender;
-    this.isactivemember = isactivemember;
+    this.activeMember = isactivemember;
     this.phone = phone;
     this.email = email;
     this.adress = adress;
@@ -28,10 +28,10 @@ public String getName(){
 public void setName(String name){
     this.name = name;
 }
-public String getDateofbirth(){
+public String getDateOfBirth(){
     return dateofbirth;
 }
-public void setDateofbirth(String dateofbirth){
+public void setDateOfBirth(String dateofbirth){
     this.dateofbirth = dateofbirth;
 }
 public String getGender(){
@@ -40,11 +40,11 @@ public String getGender(){
 public void setGender(String gender){
     this.gender = gender;
 }
-public boolean isIsactivemember(){
-    return isactivemember;
+public boolean isActiveMember(){
+    return activeMember;
 }
-public void setIsactivemember(boolean isactivemember){
-    this.isactivemember = isactivemember;
+public void setActiveMember(boolean isactivemember){
+    this.activeMember = isactivemember;
 }
 public int getPhone(){
     return phone;
