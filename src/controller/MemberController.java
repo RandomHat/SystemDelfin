@@ -47,6 +47,27 @@ public class MemberController {
                 memberList.getMember(memberID).setAdress("");
         }
     }
+    public void editMemberName(int memberID, String name){
+        memberList.getMember(memberID).setName(name);
+    }
+    public void editMemberDateOfBirth(int memberID, String Dateofbirth){
+        memberList.getMember(memberID).setDateofbirth(Dateofbirth);
+    }
+    public void editMemberGender(int memberID, String gender){
+        memberList.getMember(memberID).setGender(gender);
+    }
+    public void editMemberIsActiveMember(int memberID, boolean Isactivemember){
+        memberList.getMember(memberID).setIsactivemember(Isactivemember);
+    }
+    public void editMemberPhone(int memberID, int phone){
+        memberList.getMember(memberID).setPhone(phone);
+    }
+    public void editMemberEmail(int memberID, String email){
+        memberList.getMember(memberID).setEmail(email);
+    }
+    public void editMemberAdress(int memberID, String adress){
+        memberList.getMember(memberID).setAdress(adress);
+    }
 
     public void deleteMember() {
         Scanner removemember = new Scanner(System.in);
