@@ -112,8 +112,11 @@ public class ViewController {
                     addNewResult(true);
                     break;
                 case 4:
-
-
+                    printTopFive();
+                    break;
+                case 5:
+                    running = false;
+                    break;
             }
         }
     }
@@ -191,6 +194,11 @@ public class ViewController {
         printCompetitionList(competitionController.seniorTeamList());
     }
 
+    public void printTopFive(){
+        System.out.println("Discipline:");
+        String discipline = stringInput();
+        printCompetitionList(competitionController.topFiveMembers(discipline));
+    }
     //#endregion
 
     //#region Members Menu
