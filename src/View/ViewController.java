@@ -26,7 +26,6 @@ public class ViewController {
         System.out.println("[2] Add new member");
         System.out.println("[3] Coach options");
         System.out.println("[4] Exit program" );
-
     }
 
     /**
@@ -113,8 +112,11 @@ public class ViewController {
                     addNewResult(true);
                     break;
                 case 4:
-
-
+                    printTopFive();
+                    break;
+                case 5:
+                    running = false;
+                    break;
             }
         }
     }
@@ -148,7 +150,6 @@ public class ViewController {
                 distance = integerInput();
                 System.out.println("Time: ");
                 time = doubleInput();
-                System.out.println("Date: ");
                 System.out.println("Year: ");
                 year = integerInput();
                 System.out.println("Month: ");
@@ -193,6 +194,11 @@ public class ViewController {
         printCompetitionList(competitionController.seniorTeamList());
     }
 
+    public void printTopFive(){
+        System.out.println("Discipline:");
+        String discipline = stringInput();
+        printCompetitionList(competitionController.topFiveMembers(discipline));
+    }
     //#endregion
 
     //#region Members Menu
