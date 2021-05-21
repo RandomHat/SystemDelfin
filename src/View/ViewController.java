@@ -266,11 +266,43 @@ public class ViewController {
         System.out.println("Active member: " + isActiveMember + "| Phone: " + phone + "Email: " + email + "\n" +
                 "Adress: " + adress);
     }
-    public void editMember() throws InputMismatchException{
-        Scanner editmember = new Scanner(System.in);
-        System.out.println("Enter memberID");
-        int ID = editmember.nextInt();
-        memberController.showMember(ID);
+    public void editMember() throws InputMismatchException {
+        boolean running = true;
+        int id = getMemberID();
+        Scanner menuChoice = new Scanner(System.in);
+        memberController.getMember(id);
+        editMemberText();
+
+        while (running) {
+            switch (menuChoice.nextInt()) {
+                case 1:
+                    editMemberName(id);
+                    break;
+                case 2:
+                    editMemberBirthOfDate(id);
+                    break;
+                case 3:
+                    editMemberGender(id);
+                    break;
+                case 4:
+                    editMemberActivityStatus(id);
+                    break;
+                case 5:
+                    editMemberPhone(id);
+                    break;
+                case 6:
+                    editMemberEmail(id);
+                    break;
+                case 7:
+                    editMemberAddress(id);
+                    break;
+                case 8:
+                    running = false;
+                    break;
+            }
+        }
+    }
+    public void editMemberText(){
         System.out.println("Choose the information you want to change");
         System.out.println("[1] Name");
         System.out.println("[2] Date of birth");
@@ -280,16 +312,63 @@ public class ViewController {
         System.out.println("[6] Email");
         System.out.println("[7] Adress");
         System.out.println("[8] Cancel and return to menu");
-        int choice = editmember.nextInt();
-        if(choice >= 1 && choice < 8){
-            memberController.editMember(ID, choice);
-        } else if(choice == 8) {
-
-        } else {
-            throw new InputMismatchException();
-        }
-
     }
+    public void editMemberName(int id){
+        System.out.println("New name: ");
+        String name = stringInput();
+        memberController.editMemberName(id, name);
+        System.out.println("Edited to: ");
+        System.out.println(memberController.getMember(id).getName());
+    }
+
+    public void editMemberBirthOfDate(int id){
+        System.out.println("New Date Of Birth (YY/MM/DD): ");
+        String dateOfBirth = stringInput();
+        memberController.editMemberDateOfBirth(id,dateOfBirth);
+        System.out.println("Edited to: ");
+        System.out.println(memberController.getMember(id).getDateOfBirth());
+    }
+    public void editMemberGender(int id){
+        System.out.println("Gender Change: ");
+        String gender = stringInput();
+        memberController.editMemberGender(id,gender);
+        System.out.println("Edited to: ");
+        System.out.println(memberController.getMember(id).getGender());
+    }
+
+    public void editMemberActivityStatus(int id){
+        boolean memberStatus = memberController.getMember(id).isActiveMember();
+        memberController.editMemberIsActiveMember(id,!memberStatus);
+        if(memberStatus){
+            System.out.println("Member now has a Passive Membership");
+        } else {
+            System.out.println("Member now has a Active Membership");
+        }
+    }
+    public void editMemberPhone(int id){
+        System.out.println("New phone number: ");
+        int phoneNumber = integerInput();
+        memberController.editMemberPhone(id,phoneNumber);
+        System.out.println("Edited to: ");
+        memberController.getMember(id).getPhone();
+    }
+
+    public void editMemberEmail(int id){
+        System.out.println("new email: ");
+        String email = stringInput();
+        memberController.editMemberEmail(id,email);
+        System.out.println("New Email: ");
+        memberController.getMember(id).getEmail();
+    }
+
+    public void editMemberAddress(int id){
+        System.out.println("New address: ");
+        String address = stringInput();
+        memberController.editMemberAdress(id, address);
+        System.out.println("new Address: ");
+        memberController.getMember(id).getAdress();
+    }
+
 
     public void printListOfActiveMembers(){ //TODO lave en metode der returner en liste over active medlemmer;
         printMemberList(memberController.activeMemberList());
@@ -351,4 +430,10 @@ public class ViewController {
         return userString.nextLine();
     }
     //#endregion
+
+    public int getMemberID(){
+        System.out.println("Member ID: ");
+        int memberID = integerInput();
+        return memberID;
+    }
 }
