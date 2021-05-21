@@ -19,6 +19,7 @@ public class MemberList {
 
     // Map of members
     private final Map<Integer, Member> memberList = new HashMap<>();
+
     public Collection<Member> getMemberList() {
         return memberList.values();
     }
