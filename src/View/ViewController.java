@@ -93,7 +93,8 @@ public class ViewController {
         System.out.println("[1] Show Competition Swimmers");
         System.out.println("[2] Add new Training result");
         System.out.println("[3] Add new Competition result");
-        System.out.println("[4] Back to Main Menu");
+        System.out.println("[4] Top 5 Swimmers in Discipline");
+        System.out.println("[5] Back to Main Menu");
     }
 
     public void coachMenu(){
@@ -110,6 +111,9 @@ public class ViewController {
                     break;
                 case 3:
                     addNewResult(true);
+                    break;
+                case 4:
+
 
             }
         }
@@ -137,7 +141,7 @@ public class ViewController {
                 }
                 System.out.println("Enter ID of chosen swimmer: ");
                 memberID = integerInput();
-                System.out.println(competitionController.getMember(memberID));
+                System.out.println(competitionController.getCompetitionSwimmer(memberID));
                 System.out.println("Discipline: ");
                 type = stringInput();
                 System.out.println("Length: ");
@@ -155,7 +159,7 @@ public class ViewController {
                 if(isTournamentResult){
                     String tournamentName = stringInput();
                     int placement = integerInput();
-                    competitionController.addNewResult(memberID, time, date, distance, type, tournamentName,placement);
+                    competitionController.addNewTournamentResult(memberID, time, date, distance, type, tournamentName,placement);
                 } else
                 competitionController.addNewResult(memberID, time, date, distance, type);
                 System.out.println("Result is now saved");
@@ -172,21 +176,21 @@ public class ViewController {
      * Printer CompetitionSwimmers
      */
     public void printCompetitionSwimmers(){ //TODO lave en metode der returnere en liste over CompetitionSwimmers;
-        printCompetitionList(competitionController.competitionSwimmers());
+        printCompetitionList(competitionController.competitionSwimmersList());
     }
 
     /**
      * printer JuniorTeam
      */
     public void printjuniorTeam(){
-        printCompetitionList(competitionController.juniorTeam());
+        printCompetitionList(competitionController.juniorTeamList());
     }
 
     /**
      * printer seniorTeam
      */
     public void printSeniorTeam(){
-        printCompetitionList(competitionController.seniorTeam());
+        printCompetitionList(competitionController.seniorTeamList());
     }
 
     //#endregion
@@ -252,7 +256,7 @@ public class ViewController {
         String email = memberController.getMember(memberID).getEmail();
         String adress = memberController.getMember(memberID).getAdress();
 
-        System.out.println(memberController.getMember(memberID))//printer members toString();
+        System.out.println(memberController.getMember(memberID));//printer members toString();
         System.out.println("Active member: " + isActiveMember + "| Phone: " + phone + "Email: " + email + "\n" +
                 "Adress: " + adress);
     }
