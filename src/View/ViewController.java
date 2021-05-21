@@ -48,7 +48,7 @@ public class ViewController {
                     break;
                 case 3: // Coach options
                     coachMenu();
-
+                    break;
             }
         }
     }
@@ -59,8 +59,8 @@ public class ViewController {
         System.out.println("[1] Exerciser"); //TODO man skal kunne vælge om det er en Exerciser eller competetion swimmer
         System.out.println("[2] Competition Swimmer");//TODO man skal kunne vælge om det er en Exerciser eller competetion swimmer
         System.out.println("[3] Back to Main Menu");
-
     }
+
     public void addMember(){
         Scanner newmember = new Scanner(System.in);
         System.out.println("Enter name: ");
@@ -78,6 +78,10 @@ public class ViewController {
         System.out.println("Enter Address");
         String address = newmember.nextLine();
         memberController.addMember(name, birthday, gender, active, phonenumber, Email, address);
+    }
+
+    public void printListOfMembers() { // TODO lave en metode der returnere en liste over alle medlemmer;
+        printMemberList(memberController.getMemberList());
     }
     //#endregion
 
@@ -157,13 +161,34 @@ public class ViewController {
                 System.out.println("Result is now saved");
             }
     }
-
     public void findTeamText(){
         System.out.println("Choose a team: ");
         System.out.println("[1] Junior Team");
         System.out.println("[2] Senior Team");
         System.out.println("[3] Back to Menu");
     }
+
+    /**
+     * Printer CompetitionSwimmers
+     */
+    public void printCompetitionSwimmers(){ //TODO lave en metode der returnere en liste over CompetitionSwimmers;
+        printCompetitionList(competitionController.competitionSwimmers());
+    }
+
+    /**
+     * printer JuniorTeam
+     */
+    public void printjuniorTeam(){
+        printCompetitionList(competitionController.juniorTeam());
+    }
+
+    /**
+     * printer seniorTeam
+     */
+    public void printSeniorTeam(){
+        printCompetitionList(competitionController.seniorTeam());
+    }
+
     //#endregion
 
     //#region Members Menu
@@ -255,9 +280,17 @@ public class ViewController {
         }
 
     }
+
+    public void printListOfActiveMembers(){ //TODO lave en metode der returner en liste over active medlemmer;
+        printMemberList(memberController.activeMemberList());
+    }
+    public void printListOfPassiveMembers(){ //TODO lave en metode der returner en liste over Passive medlemmer;
+        printMemberList(memberController.passiveMemberList());
+    }
+
     //#endregion
 
-    //#region Memberlist Printers
+    //#region Printer Methods
     public void printMemberList(Collection<Member> list){
         Member[] array = new Member[list.size()];
         list.toArray(array);
@@ -265,37 +298,20 @@ public class ViewController {
             System.out.println(array[i]);
         }
     }
-    public void printListOfActiveMembers(){ //TODO lave en metode der returner en liste over active medlemmer;
-        printMemberList(memberController.activeMemberList());
-    }
-    public void printListOfPassiveMembers(){ //TODO lave en metode der returner en liste over Passive medlemmer;
-        printMemberList(memberController.passiveMemberList());
-    }
-    public void printListOfMembers() { // TODO lave en metode der returnere en liste over alle medlemmer;
-        printMemberList(memberController.memberList());
-    }
-    //#endregion
 
-    //#region Competition Array Printers
     public void printCompetitionList(Collection<CompetitionSwimmer> list){
-    CompetitionSwimmer[] array = new CompetitionSwimmer[list.size()];
-    list.toArray(array);
-    for (int i = 0; i<array.length;i++){
-        System.out.println(array[i]);
-    }
-}
-    public void printCompetitionSwimmers(){ //TODO lave en metode der returnere en liste over CompetitionSwimmers;
-            printCompetitionList(competitionController.competitionSwimmers());
+        CompetitionSwimmer[] array = new CompetitionSwimmer[list.size()];
+        list.toArray(array);
+        for (int i = 0; i<array.length;i++){
+            System.out.println(array[i]);
         }
-    public void printjuniorTeam(){
-        printCompetitionList(competitionController.juniorTeam());
-    }
-    public void printSeniorTeam(){
-        printCompetitionList(competitionController.seniorTeam());
-    }
+}
+
+
+
     //#endregion
 
-    //#region Scanner
+    //#region Scanner methods
     public int integerInput() throws InputMismatchException {
         Scanner userInteger = new Scanner(System.in);
         int choice;
