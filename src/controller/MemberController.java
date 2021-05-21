@@ -53,13 +53,13 @@ public class MemberController {
         memberList.getMember(memberID).setName(name);
     }
     public void editMemberDateOfBirth(int memberID, String Dateofbirth){
-        memberList.getMember(memberID).setDateofbirth(Dateofbirth);
+        memberList.getMember(memberID).setDateOfBirth(Dateofbirth);
     }
     public void editMemberGender(int memberID, String gender){
         memberList.getMember(memberID).setGender(gender);
     }
     public void editMemberIsActiveMember(int memberID, boolean Isactivemember){
-        memberList.getMember(memberID).setIsactivemember(Isactivemember);
+        memberList.getMember(memberID).setActiveMember(Isactivemember);
     }
     public void editMemberPhone(int memberID, int phone){
         memberList.getMember(memberID).setPhone(phone);
