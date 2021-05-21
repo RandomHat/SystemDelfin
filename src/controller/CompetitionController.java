@@ -22,7 +22,7 @@ public class CompetitionController {
     //
 
     /**
-     * laver competitionMembers  om fra members til Competitions
+     * laver competitionMembers  om fra members til CompetitionsSwimmers
      * @return CompetitionSwimmer Map
      */
     public Map<Integer, CompetitionSwimmer> competitionSwimmerList(){
