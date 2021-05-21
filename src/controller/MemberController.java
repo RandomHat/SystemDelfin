@@ -3,16 +3,15 @@ package controller;
 import model.Member;
 import model.MemberList;
 
+import java.util.Collection;
 import java.util.Scanner;
 
 public class MemberController {
 
     MemberList memberList = MemberList.getInstance();
 
-    public void listOfMembers(){
-        for (Member currentMember: memberList.getMemberList()){
-            System.out.println(currentMember);
-        }
+    public Collection<Member> getMemberList(){
+        return memberList.getMemberList();
     }
 
     public Member getMember(int memberID){
