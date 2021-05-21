@@ -395,9 +395,6 @@ public class ViewController {
             System.out.println(array[i]);
         }
 }
-
-
-
     //#endregion
 
     //#region Scanner methods
@@ -431,9 +428,11 @@ public class ViewController {
     }
     //#endregion
 
+    //#region universal Methods
     public int getMemberID(){
         System.out.println("Member ID: ");
         int memberID = integerInput();
         return memberID;
     }
+    //#endregion
 }
