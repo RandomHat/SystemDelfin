@@ -1,42 +1,57 @@
 package controller;
+// @Author Lærke
 
-import model.CompetitionSwimmer;
 import model.Member;
 import model.MemberList;
-
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class CompetitionController {
 
-    private MemberList member = MemberList.getInstance();
+    private MemberList memberList = MemberList.getInstance();
 
-    // liste over hvad controller skal kunne
 
-    //opret tider
-    //find tider
-    //have en liste over CompetitionSwimmers og kunne sortere efter bedste tid
-    //Udtage til turneringer ud fra liste af Swimmers(Som har en liste med tider) i SwimDiscipline kategorien
-    //tildele SwimDisciplines til CompetitionSwimmer
-    //
-
-    /**
-     * laver competitionMembers  om fra members til CompetitionsSwimmers
-     * @return CompetitionSwimmer Map
-     */
-    public Map<Integer, CompetitionSwimmer> competitionSwimmerList(){
-        Map<Integer, CompetitionSwimmer> competitionSwimmers = new HashMap<>();
-        Member[] array = new Member[member.getMemberList().size()];
-
-        for(int i = 0; i < array.length; i++)
-        if(array[i] instanceof CompetitionSwimmer){
-            CompetitionSwimmer currentMember = (CompetitionSwimmer) array[i];
-            competitionSwimmers.put(member.getMember(i).getId(),currentMember);
-        }
-        return competitionSwimmers;
+    public Member getCompetitionSwimmer(int memberID) {
+        return this.memberList.getMember(memberID);
     }
 
 
+    //lav liste over CompetitionSwimmers
+    public Collection<Member> listOfCompetitionSwimmers() {
+        ArrayList<Member> listOfCompetitionSwimmers = new ArrayList<>();
 
+        for (Member member : memberList.getMemberList()) {
+            if(member.isCompetitionSwimmer()) {
+                listOfCompetitionSwimmers.add(member);
+            }
+        }
+        return listOfCompetitionSwimmers;
+    }
+
+    //liste over junior CompetitionSwimmers - alternativt ind i SwimmerProfile TODO
+    public Collection<Member> juniorTeamList() {
+        return null;
+    }
+
+    // liste over senior CompetitionSwimmers - alternativt ind i SwimmerProfile TODO
+    public Collection<Member> seniorTeamList() {
+        return null;
+    }
+
+    //opret turneringsresultatresultat TODO
+    public void addNewTournamentResult(int memberID, double time, Date date, int distance, String type, String tournamentName, int placement) {
+        //addResult skal tage et memberID, trække Svømmeprofil ud og tilføje et resultat til medlemmets svømmeprofil
+    }
+
+    //opret træningsresultat TODO
+    public void addNewResult(int memberID, double time, Date date, int distance, String type) {
+        //addResult skal tage et memberID, trække Svømmeprofil ud og tilføje et resultat til medlemmets svømmeprofil
+    }
+
+    //tilføj disciplin TODO
+
+    //liste over top5 træningstid til udtagelse til competition
+    public Collection<Member> topFiveMembers(String discipline) { //TODO
+        return null;
+    }
 }
+

@@ -35,7 +35,8 @@ public class ViewController {
         Scanner menuChoice = new Scanner(System.in);
         boolean running = true;
         while(running) {
-            mainMenu();
+           // mainMenu(); rekursiv, kalder sig selv
+            mainMenuText(); //skriver menu
             switch (menuChoice.nextInt()) {
 
                 case 1:
@@ -62,6 +63,18 @@ public class ViewController {
 
     public void addMember(){
         Scanner newmember = new Scanner(System.in);
+        newMemberMenuText(); // new, skal have valg af CS ind
+        int subMenuChoice = newmember.nextInt();
+        boolean isCompetitionSwimmer;
+
+        if (subMenuChoice == 1){
+            isCompetitionSwimmer = false;
+        } else if (subMenuChoice == 2){
+            isCompetitionSwimmer = true;
+        } else {
+            return; //slipper for at håndtere exceptions ved fejltastning
+        }
+
         System.out.println("Enter name: ");
         String name = newmember.nextLine();
         System.out.println("Enter Birthday: ");
@@ -76,7 +89,7 @@ public class ViewController {
         String Email =  newmember.nextLine();
         System.out.println("Enter Address");
         String address = newmember.nextLine();
-        memberController.addMember(name, birthday, gender, active, phonenumber, Email, address);
+        memberController.addMember(name, birthday, gender, active, phonenumber, Email, address, isCompetitionSwimmer); // new
     }
 
     public void printListOfMembers() { // TODO lave en metode der returnere en liste over alle medlemmer;
@@ -177,7 +190,7 @@ public class ViewController {
      * Printer CompetitionSwimmers
      */
     public void printCompetitionSwimmers(){ //TODO lave en metode der returnere en liste over CompetitionSwimmers;
-        printCompetitionList(competitionController.competitionSwimmersList());
+        printCompetitionList(competitionController.listOfCompetitionSwimmers());
     }
 
     /**
@@ -388,8 +401,8 @@ public class ViewController {
         }
     }
 
-    public void printCompetitionList(Collection<CompetitionSwimmer> list){
-        CompetitionSwimmer[] array = new CompetitionSwimmer[list.size()];
+    public void printCompetitionList(Collection<Member> list){ // new erstattet CS med Member
+        Member[] array = new Member[list.size()];
         list.toArray(array);
         for (int i = 0; i<array.length;i++){
             System.out.println(array[i]);

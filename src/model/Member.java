@@ -9,6 +9,14 @@ public class Member {
     private String email;
     private String adress;
     private int id;
+    private SwimmerProfile swimmerprofile; //new
+    private boolean isCompetitionSwimmer; //new
+
+//constructor - swimmerprofile optional //new
+public Member(String name, String dateofbirth, String gender, boolean isactivemember, int phone, String email, String adress, int id, SwimmerProfile swimmerprofile){
+    this(name, dateofbirth, gender, isactivemember, phone, email, adress, id);
+    this.swimmerprofile = swimmerprofile;
+}
 
 //constructor
 public Member(String name, String dateofbirth, String gender, boolean isactivemember, int phone, String email, String adress, int id){
@@ -21,6 +29,7 @@ public Member(String name, String dateofbirth, String gender, boolean isactiveme
     this.adress = adress;
     this.id = id;
 }
+
 //getters and setters
 public String getName(){
     return name;
@@ -72,4 +81,12 @@ public void setId(int id){
 }
 @Override
     public String toString(){return id + " " + name + " " + dateofbirth + " " + gender;}
+
+    public void setCompetitionSwimmer(boolean competitionSwimmer) {
+        isCompetitionSwimmer = competitionSwimmer;
+    }
+
+    public boolean isCompetitionSwimmer() {
+        return isCompetitionSwimmer;
+    }
 }

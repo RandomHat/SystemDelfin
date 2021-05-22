@@ -24,8 +24,9 @@ public class MemberController {
         System.out.println(memberList.getMember(memberID));
     }
 
-    public void addMember(String name, String dateOfBirth, String gender, boolean isActiveMember, int phone, String email, String address){
+    public void addMember(String name, String dateOfBirth, String gender, boolean isActiveMember, int phone, String email, String address, boolean isCompetitionSwimmer){
         Member member = new Member(name, dateOfBirth, gender, isActiveMember, phone, email, address, memberList.getMemberIDCounter());
+        member.setCompetitionSwimmer(isCompetitionSwimmer); // new, angiver om medlem er konkurrencesvømmer
         memberList.addMember(member);
     }
 
