@@ -61,9 +61,8 @@ public class ViewController {
     }
 
     public void addMember(){
-        Scanner newmember = new Scanner(System.in);
         newMemberMenuText(); // new, skal have valg af CS ind
-        int subMenuChoice = newmember.nextInt();
+        int subMenuChoice = integerInput();
         boolean isCompetitionSwimmer;
 
         if (subMenuChoice == 1){
@@ -75,19 +74,18 @@ public class ViewController {
         }
 
         System.out.println("Enter name: ");
-        String name = newmember.nextLine();
+        String name = stringInput();
         System.out.println("Enter Birthday: ");
-        String birthday = newmember.nextLine();
+        String birthday = stringInput();
         System.out.println("Enter Gender");
-        String gender = newmember.nextLine();
-        System.out.println("Is the member active inactive?");
-        Boolean active = newmember.nextBoolean(); //TODO måske bare være active som udgangspunkt?
+        String gender = stringInput();
+        Boolean active = true; //TODO måske bare være active som udgangspunkt?
         System.out.println("Enter phone number");
-        int phonenumber = newmember.nextInt();
+        int phonenumber = integerInput();
         System.out.println("Enter email address");
-        String Email =  newmember.nextLine();
+        String Email =  stringInput();
         System.out.println("Enter Address");
-        String address = newmember.nextLine();
+        String address = stringInput();
         memberController.addMember(name, birthday, gender, active, phonenumber, Email, address, isCompetitionSwimmer); // new
     }
 
@@ -158,7 +156,7 @@ public class ViewController {
                 System.out.println(competitionController.getCompetitionSwimmer(memberID));
                 System.out.println("Discipline: ");
                 type = stringInput();
-                System.out.println("Length: ");
+                System.out.println("Length in Meters: ");
                 distance = integerInput();
                 System.out.println("Time: ");
                 time = integerInput();
@@ -197,7 +195,7 @@ public class ViewController {
     /**
      * printer JuniorTeam
      */
-    public void printjuniorTeam(){
+    public void printJuniorTeam(){
         printCompetitionList(competitionController.juniorTeamList());
     }
 
@@ -278,7 +276,7 @@ public class ViewController {
 
         System.out.println(memberController.getMember(memberID));//printer members toString();
         System.out.println("Active member: " + isActiveMember + "| Phone: " + phone + "Email: " + email + "\n" +
-                "Adress: " + adress);
+                "Address: " + adress);
     }
     public void editMember() throws InputMismatchException {
         boolean running = true;
