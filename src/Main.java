@@ -1,8 +1,8 @@
 import View.ViewController;
 import controller.MemberController;
-import model.Member;
-import model.MemberList;
-import model.SwimmerProfile;
+import model.*;
+
+import java.util.Date;
 
 public class Main {
 
@@ -30,6 +30,17 @@ public class Main {
         Member inactiveExerciser = new Member("testmember4", "222222", "male", false, 22222222, "22@22", "null", instance.getMemberIDCounter(), new SwimmerProfile());
         inactiveExerciser.setCompetitionSwimmer(false);
         instance.addMember(inactiveExerciser);
+
+        TrainingResult trainingResult1 = new TrainingResult(1000, new Date(), new SwimDiscipline(300, "crawl"));
+        TrainingResult trainingResult2 = new TrainingResult(1000, new Date(), new SwimDiscipline(300, "bryst"));
+        TournamentResult tournamentResult1 = new TournamentResult(1000, new Date(), new SwimDiscipline(300, "crawl"), 10, "EM");
+        TournamentResult tournamentResult2 = new TournamentResult(1000, new Date(), new SwimDiscipline(300, "bryst"), 4, "EM");
+        activeCompSwimmer.getSwimmerprofile().logResult(tournamentResult2);
+        activeCompSwimmer.getSwimmerprofile().logResult(trainingResult1);
+
+
+
+
 
 
         VIEW_CONTROLLER.mainMenu();

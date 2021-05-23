@@ -82,11 +82,16 @@ public void setId(int id){
 @Override
     public String toString(){return id + " " + name + " " + dateofbirth + " " + gender;}
 
-    public void setCompetitionSwimmer(boolean competitionSwimmer) {
+    public void setCompetitionSwimmer(boolean competitionSwimmer) { // new added
         isCompetitionSwimmer = competitionSwimmer;
     }
 
-    public boolean isCompetitionSwimmer() {
+    public boolean isCompetitionSwimmer() { // new added
         return isCompetitionSwimmer;
     }
+
+    public SwimmerProfile getSwimmerprofile() { //new added
+        return swimmerprofile;
+    }
+
 }

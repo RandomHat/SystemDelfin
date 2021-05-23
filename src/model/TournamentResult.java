@@ -7,7 +7,7 @@ public class TournamentResult extends Result{
     private int placement;
     private String tournament;
 
-    TournamentResult(int time, Date date, SwimDiscipline discipline, int placement, String tournament){
+    public TournamentResult(int time, Date date, SwimDiscipline discipline, int placement, String tournament){
         super(time, date, discipline);
         this.placement = placement;
         this.tournament = tournament;

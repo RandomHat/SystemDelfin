@@ -1,19 +1,18 @@
 package controller;
 // @Author Lærke
 
-import model.Member;
-import model.MemberList;
+import model.*;
+
 import java.util.*;
 
 public class CompetitionController {
 
     private MemberList memberList = MemberList.getInstance();
 
-
+    //hent CompetitionSwimmer fra liste
     public Member getCompetitionSwimmer(int memberID) {
         return this.memberList.getMember(memberID);
     }
-
 
     //lav liste over CompetitionSwimmers
     public Collection<Member> listOfCompetitionSwimmers() {
@@ -37,17 +36,21 @@ public class CompetitionController {
         return null;
     }
 
-    //opret turneringsresultatresultat TODO
-    public void addNewTournamentResult(int memberID, double time, Date date, int distance, String type, String tournamentName, int placement) {
-        //addResult skal tage et memberID, trække Svømmeprofil ud og tilføje et resultat til medlemmets svømmeprofil
+    //tilføj turneringsresultatresultat til svømmeprofil
+    public void addNewTournamentResult(int memberID, TournamentResult tournamentResult) {
+        //hent member/competitionsswimmers svømmeprofil
+        SwimmerProfile swimmerProfile = getCompetitionSwimmer(memberID).getSwimmerprofile();
+        //tilføj turneringsresultat til medlems svømmeprofil
+        swimmerProfile.logResult(tournamentResult);
     }
 
-    //opret træningsresultat TODO
-    public void addNewResult(int memberID, double time, Date date, int distance, String type) {
-        //addResult skal tage et memberID, trække Svømmeprofil ud og tilføje et resultat til medlemmets svømmeprofil
+    //tilføj træningsresultat til svømmeprofil
+    public void addNewTrainingResult(int memberID, TrainingResult trainingResult) {
+        //hent member/competitionsswimmers svømmeprofil
+        SwimmerProfile swimmerProfile = getCompetitionSwimmer(memberID).getSwimmerprofile();
+        //tilføj træningssresultat til medlems svømmeprofil
+        swimmerProfile.logResult(trainingResult);
     }
-
-    //tilføj disciplin TODO
 
     //liste over top5 træningstid til udtagelse til competition
     public Collection<Member> topFiveMembers(String discipline) { //TODO
@@ -55,3 +58,8 @@ public class CompetitionController {
     }
 }
 
+//Inden for hver svømmedisciplin registreres den enkelte svømmers bedste træningsresultat og dato
+//løbende. For de svømmere, der har deltaget i konkurrencer, registreres stævne, placering og tid. Det er på
+//baggrund af de enkelte svømmeres resultater, at træneren udtager svømmere til deltagelse i konkurrencer.
+//Træneren ønsker derfor en oversigt, der kan vise klubbens top 5 svømmere inden for hver svømmedisciplin
+//(butterfly, crawl, rygcrawl og brystsvømning), fordelt på henholdsvis junior og seniorsvømmere.

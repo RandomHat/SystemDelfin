@@ -10,3 +10,6 @@ public class CompetitionSwimmer extends Member {
         super(name, dateofbirth, gender, isactivemember, phone, email, adress, id);
     }
 }
+
+
+//CS bliver aldrig brugt

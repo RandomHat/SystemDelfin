@@ -2,8 +2,7 @@ package View;
 
 import controller.CompetitionController;
 import controller.MemberController;
-import model.CompetitionSwimmer;
-import model.Member;
+import model.*;
 
 import java.util.Collection;
 import java.util.Date;
@@ -137,7 +136,7 @@ public class ViewController {
     public void addNewResult(boolean isTournamentResult) {
         int team;
         int memberID;
-        double time;
+        int time;
         int distance;
         String type;
         Date date;
@@ -149,10 +148,10 @@ public class ViewController {
             if(team == 1 || team == 2) {
 
                 if (team == 1) {
-                    printjuniorTeam();
+                    // printjuniorTeam(); ej implementeret
                 }
                 if (team == 2) {
-                    printSeniorTeam();
+                   // printSeniorTeam(); ej implementeret
                 }
                 System.out.println("Enter ID of chosen swimmer: ");
                 memberID = integerInput();
@@ -162,7 +161,7 @@ public class ViewController {
                 System.out.println("Length: ");
                 distance = integerInput();
                 System.out.println("Time: ");
-                time = doubleInput();
+                time = integerInput();
                 System.out.println("Year: ");
                 year = integerInput();
                 System.out.println("Month: ");
@@ -171,11 +170,13 @@ public class ViewController {
                 day = integerInput();
                 date = new Date(year, month, day);
                 if(isTournamentResult){
+                    System.out.println("Tournament: "); // new added
                     String tournamentName = stringInput();
+                    System.out.println("Placement: "); // new added
                     int placement = integerInput();
-                    competitionController.addNewTournamentResult(memberID, time, date, distance, type, tournamentName,placement);
+                    competitionController.addNewTournamentResult(memberID, new TournamentResult(time, date, new SwimDiscipline(distance, type), placement, tournamentName)); // new added
                 } else
-                competitionController.addNewResult(memberID, time, date, distance, type);
+                competitionController.addNewTrainingResult(memberID, new TrainingResult(time, date, new SwimDiscipline(distance, type))); // new added
                 System.out.println("Result is now saved");
             }
     }
