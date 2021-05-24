@@ -279,9 +279,6 @@ public class ViewController {
 
         int memberID = integerInput();
         // ID - Name - date of birth - gender
-        String name = memberController.getMember(memberID).getName();
-        int age = memberController.getMember(memberID).getAge();
-        String gender = memberController.getMember(memberID).getGender();
         Boolean isActiveMember = memberController.getMember(memberID).isActiveMember();
         int phone = memberController.getMember(memberID).getPhone();
         String email = memberController.getMember(memberID).getEmail();
