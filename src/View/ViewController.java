@@ -94,6 +94,7 @@ public class ViewController {
         System.out.println("Enter the ID of the member to be removed");
         int membertoberemoved = integerInput();
         memberController.memberToRemove(membertoberemoved);
+        System.out.println("member ID: " + membertoberemoved + "has been removed");
     }
 
     public void printListOfMembers() { // TODO lave en metode der returnere en liste over alle medlemmer;
