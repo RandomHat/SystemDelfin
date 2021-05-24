@@ -17,7 +17,9 @@ public class SaveLoadController {
         while(reader.hasNext()){
             String currentLine = reader.nextLine();
             String[] attributes = currentLine.trim().split(";");
-
+            memberList.addMember( new Member(Integer.parseInt(attributes[0]),attributes[1],Integer.parseInt(attributes[2]),
+                    attributes[3], Boolean.parseBoolean(attributes[4]),Integer.parseInt(attributes[5]),attributes[6],
+                    attributes[7],Boolean.parseBoolean(attributes[8])));
         }
     }
 
@@ -30,7 +32,8 @@ public class SaveLoadController {
     }
 
     public String convertToSaveString(Member member){
-        return member.getId() + ";" + member.getName() + ";" + member.getAge() +";" + member.getGender() + ";" + member.isActiveMember() + ";" + member.getPhone() + ";" +
-            member.getEmail() + ";" + member.getAdress() + ";" + member.isCompetitionSwimmer();
+        return member.getId() + ";" + member.getName() + ";" + member.getAge() +";" + member.getGender() + ";" +
+                member.isActiveMember() + ";" + member.getPhone() + ";" + member.getEmail() + ";" + member.getAdress() +
+                ";" + member.isCompetitionSwimmer();
     }
 }
