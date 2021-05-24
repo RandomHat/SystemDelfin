@@ -9,5 +9,7 @@ class ResultTest {
     @Test
     void compareTo() {
         //testest
+
+        //TournamentResult result1 = new TournamentResult();
     }
 }
