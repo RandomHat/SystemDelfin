@@ -1,1 +1,2 @@
-memberID;Name;Age;Gender;isactivemember;phone;email;adress;competitionSwimmer1
+memberID;Name;Age;Gender;isactivemember;phone;email;adress;competitionSwimmer
+1;Mark;27;Man;true;23232323;m@m.dk;København;true
