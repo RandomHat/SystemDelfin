@@ -25,10 +25,9 @@ public abstract class Result implements Comparable<Result>{
 
     @Override
     public int compareTo(Result o) {
-
-        if (time > o.getTime()) {
+        if (time < o.getTime()) {
             return 1;
-        } else if (time < o.getTime()) {
+        } else if (time > o.getTime()) {
             return -1;
         } else
             return 0;
