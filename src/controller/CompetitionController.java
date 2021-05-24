@@ -28,6 +28,8 @@ public class CompetitionController {
 
     //liste over junior CompetitionSwimmers - alternativt ind i SwimmerProfile TODO
     public Collection<Member> juniorTeamList() {
+        //skal bruge markør for junior, for at kunne trække en liste af juniorer
+
         return null;
     }
 
@@ -54,9 +56,52 @@ public class CompetitionController {
 
     //liste over top5 træningstid til udtagelse til competition
     public Collection<Member> topFiveMembers(String discipline) { //TODO
-        return null;
+        // Hent aktive svømmere og disses svømmeprofiler.
+        // Gruppér de udvalgte svømmeres træningsresultater på den angivne svømmedisciplin.
+        // Sortér træningsresultat efter tid.
+        // Udvælg de fem bedste svømmere i svømmedisciplinen og returner dem.
+
+        ArrayList<MemberAndTrainingResult> membersWithBestResult = new ArrayList<>();
+
+        for (Member member : listOfCompetitionSwimmers()) {
+            TrainingResult bestResult = member.getSwimmerprofile().findBestTrainingResult(new SwimDiscipline(0000, discipline));
+            membersWithBestResult.add(new MemberAndTrainingResult(member, bestResult));
+        }
+
+        Collections.sort(membersWithBestResult);
+        ArrayList<Member> top5 = new ArrayList<>();
+        for (MemberAndTrainingResult result : membersWithBestResult) {
+            if (top5.size() < 5)
+            {
+                top5.add(result.member);
+            }
+
+            break;
+        }
+
+        return top5;
+    }
+
+    //sammenkobling af medlem og resultat
+
+    private class MemberAndTrainingResult implements Comparable<MemberAndTrainingResult>{
+        Member member;
+        TrainingResult trainingResult;
+
+        MemberAndTrainingResult(Member member, TrainingResult trainingResult)
+        {
+            this.member = member;
+            this.trainingResult = trainingResult;
+        }
+
+        @Override
+        public int compareTo(MemberAndTrainingResult o) {
+            return this.trainingResult.compareTo(o.trainingResult);
+        }
     }
 }
+
+//Udvidelsespunkt: Konkurrencesvømmerne er inddelt i 2 hold efter alder. Ungdomsholdet er for svømmere under 18 år. Seniorholdet er for svømmere på 18 og over.
 
 //Inden for hver svømmedisciplin registreres den enkelte svømmers bedste træningsresultat og dato
 //løbende. For de svømmere, der har deltaget i konkurrencer, registreres stævne, placering og tid. Det er på
