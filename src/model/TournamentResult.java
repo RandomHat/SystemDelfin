@@ -26,17 +26,6 @@ public class TournamentResult extends Result{
     }
 
     @Override
-    public int compareTo(Result o) {
-
-            if (super.getTime() > o.getTime()) {
-                return 1;
-            } else if (super.getTime() < o.getTime()) {
-                return -1;
-            } else
-                return 0;
-    }
-
-    @Override
     public String toString(){
         return "Tournament: " + tournament + "\n" +
                 "Placement: " + placement + "\n" +

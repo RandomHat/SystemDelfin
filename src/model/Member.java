@@ -77,7 +77,7 @@ public void setId(int id){
     this.id = id;
 }
 @Override
-    public String toString(){return id + " " + name + " " + age + " " + gender;}
+    public String toString(){return "[" + id + "] " + name + " Age: " + age + " Gender: " + gender;}
 
     public void setCompetitionSwimmer(boolean competitionSwimmer) { // new added
         isCompetitionSwimmer = competitionSwimmer;

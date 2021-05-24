@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
+//@author Mark Kaplan Hansen
 public class ViewController {
 
     private final CompetitionController competitionController = new CompetitionController();
@@ -95,11 +95,10 @@ public class ViewController {
     }
 
     public void deleteMember(){
-        Scanner removemember = new Scanner(System.in);
         System.out.println("Enter the ID of the member to be removed");
-        int membertoberemoved = integerInput();
-        memberController.memberToRemove(membertoberemoved);
-        System.out.println("member ID: " + membertoberemoved + "has been removed");
+        int memberToBeRemoved = integerInput();
+        memberController.memberToRemove(memberToBeRemoved);
+        System.out.println("Member ID: " + memberToBeRemoved + " has been removed");
     }
 
     public void printListOfMembers() { // TODO lave en metode der returnere en liste over alle medlemmer;
@@ -220,7 +219,7 @@ public class ViewController {
     }
 
     public void printTopFive(){
-        System.out.println("Discipline:");
+        System.out.println("Discipline: ");
         String discipline = stringInput();
         printCompetitionList(competitionController.topFiveMembers(discipline));
     }
@@ -233,9 +232,10 @@ public class ViewController {
     public void showMembersText(){
         System.out.println("[1] Show member details"); //TODO print detaljer om Members
         System.out.println("[2] Edit member");
-        System.out.println("[3] show Active members"); // TODO print liste over active members
-        System.out.println("[4] show Passive members");// TODO print liste over passive members
-        System.out.println("[5] Back to Main Menu");
+        System.out.println("[3] Remove member");
+        System.out.println("[4] Show Active members"); // TODO print liste over active members
+        System.out.println("[5] Show Passive members");// TODO print liste over passive members
+        System.out.println("[6] Back to Main Menu");
     }
 
     /**
@@ -245,10 +245,9 @@ public class ViewController {
         Scanner menuChoice = new Scanner(System.in);
         boolean running = true;
 
-        showMembersText();
-
             while(running){
                 try{
+                    showMembersText();
                 switch (menuChoice.nextInt()) {
 
                     case 1: // viser member details på ønsket medlem
@@ -257,13 +256,15 @@ public class ViewController {
                     case 2: //Edit member
                         editMember();
                         break;
-                    case 3: //viser liste med active members
+                    case 3:
+                        deleteMember();
+                    case 4: //viser liste med active members
                         printListOfActiveMembers();
                         break;
-                    case 4: // viser liste med de passive members
+                    case 5: // viser liste med de passive members
                         printListOfPassiveMembers();
                         break;
-                    case 5: // Back to mainMenu
+                    case 6: // Back to mainMenu
                         running = false;
                         break;
                 }
@@ -288,7 +289,7 @@ public class ViewController {
         String adress = memberController.getMember(memberID).getAdress();
 
         System.out.println(memberController.getMember(memberID));//printer members toString();
-        System.out.println("Active member: " + isActiveMember + "| Phone: " + phone + "Email: " + email + "\n" +
+        System.out.println("Active member: " + isActiveMember + "| Phone: " + phone + " Email: " + email + "\n" +
                 "Address: " + adress);
     }
     public void editMember() throws InputMismatchException {
@@ -296,9 +297,9 @@ public class ViewController {
         int id = getMemberID();
         Scanner menuChoice = new Scanner(System.in);
         memberController.getMember(id);
-        editMemberText();
 
         while (running) {
+            editMemberText();
             switch (menuChoice.nextInt()) {
                 case 1:
                     editMemberName(id);
@@ -330,13 +331,13 @@ public class ViewController {
     public void editMemberText(){
         System.out.println("Choose the information you want to change");
         System.out.println("[1] Name");
-        System.out.println("[2] Date of birth");
+        System.out.println("[2] Age");
         System.out.println("[3] Gender");
         System.out.println("[4] Activity status");
         System.out.println("[5] Phone number");
         System.out.println("[6] Email");
-        System.out.println("[7] Adress");
-        System.out.println("[8] Cancel and return to menu");
+        System.out.println("[7] Address");
+        System.out.println("[8] Return to menu");
     }
     public void editMemberName(int id){
         System.out.println("New name: ");
@@ -347,7 +348,7 @@ public class ViewController {
     }
 
     public void editMemberBirthOfDate(int id){
-        System.out.println("New Date Of Birth (YY/MM/DD): ");
+        System.out.println("Age: ");
         int age = integerInput();
         memberController.editMemberDateOfBirth(id,age);
         System.out.println("Edited to: ");
@@ -379,7 +380,7 @@ public class ViewController {
     }
 
     public void editMemberEmail(int id){
-        System.out.println("new email: ");
+        System.out.println("New email: ");
         String email = stringInput();
         memberController.editMemberEmail(id,email);
         System.out.println("New Email: ");
@@ -390,7 +391,7 @@ public class ViewController {
         System.out.println("New address: ");
         String address = stringInput();
         memberController.editMemberAdress(id, address);
-        System.out.println("new Address: ");
+        System.out.println("New Address: ");
         memberController.getMember(id).getAdress();
     }
 
