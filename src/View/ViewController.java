@@ -38,7 +38,6 @@ public class ViewController {
         boolean running = true;
         while(running) {
             saveLoadController.saveMemberList();
-           // mainMenu(); rekursiv, kalder sig selv
             mainMenuText(); //skriver menu
             switch (menuChoice.nextInt()) {
 
@@ -59,13 +58,13 @@ public class ViewController {
      * Add new member under menu
      */
     public void newMemberMenuText(){
-        System.out.println("[1] Exerciser"); //TODO man skal kunne vælge om det er en Exerciser eller competetion swimmer
-        System.out.println("[2] Competition Swimmer");//TODO man skal kunne vælge om det er en Exerciser eller competetion swimmer
+        System.out.println("[1] Exerciser");
+        System.out.println("[2] Competition Swimmer");
         System.out.println("[3] Back to Main Menu");
     }
 
     public void addMember() throws FileNotFoundException {
-        newMemberMenuText(); // new, skal have valg af CS ind
+        newMemberMenuText();
         int subMenuChoice = integerInput();
         boolean isCompetitionSwimmer;
 
@@ -83,7 +82,7 @@ public class ViewController {
         int age = integerInput();
         System.out.println("Enter Gender");
         String gender = stringInput();
-        Boolean active = true; //TODO måske bare være active som udgangspunkt?
+        Boolean active = true;
         System.out.println("Enter phone number");
         int phonenumber = integerInput();
         System.out.println("Enter email address");
@@ -180,13 +179,13 @@ public class ViewController {
                 day = integerInput();
                 date = new Date(year, month, day);
                 if(isTournamentResult){
-                    System.out.println("Tournament: "); // new added
+                    System.out.println("Tournament: ");
                     String tournamentName = stringInput();
-                    System.out.println("Placement: "); // new added
+                    System.out.println("Placement: ");
                     int placement = integerInput();
-                    competitionController.addNewTournamentResult(memberID, new TournamentResult(time, date, new SwimDiscipline(distance, type), placement, tournamentName)); // new added
+                    competitionController.addNewTournamentResult(memberID, new TournamentResult(time, date, new SwimDiscipline(distance, type), placement, tournamentName));
                 } else
-                competitionController.addNewTrainingResult(memberID, new TrainingResult(time, date, new SwimDiscipline(distance, type))); // new added
+                competitionController.addNewTrainingResult(memberID, new TrainingResult(time, date, new SwimDiscipline(distance, type)));
                 System.out.println("Result is now saved");
             }
     }
@@ -230,11 +229,11 @@ public class ViewController {
      * show members under menu
      */
     public void showMembersText(){
-        System.out.println("[1] Show member details"); //TODO print detaljer om Members
+        System.out.println("[1] Show member details");
         System.out.println("[2] Edit member");
         System.out.println("[3] Remove member");
-        System.out.println("[4] Show Active members"); // TODO print liste over active members
-        System.out.println("[5] Show Passive members");// TODO print liste over passive members
+        System.out.println("[4] Show Active members");
+        System.out.println("[5] Show Passive members");
         System.out.println("[6] Back to Main Menu");
     }
 
@@ -275,7 +274,7 @@ public class ViewController {
 
         }
     }
-    public void printMemberDetails(){ //TODO lave en metode der returnere et member objekt ud fra ID -> getMember(memberID)
+    public void printMemberDetails(){
         System.out.println("Member ID: ");
 
         int memberID = integerInput();
