@@ -6,7 +6,6 @@ import model.MemberList;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Scanner;
 
 public class MemberController {
 
@@ -27,26 +26,6 @@ public class MemberController {
         memberList.addMember(member);
     }
 
-
-    public void editMember(int memberID, int choice) {
-        //skal bruge en masse setter
-        switch (choice) {
-            case 1:
-                memberList.getMember(memberID).setName("blank"); //TODO find ud af at løse scanner input ting.
-            case 2:
-                memberList.getMember(memberID).setAge(1);
-            case 3:
-                memberList.getMember(memberID).setGender("");
-            case 4:
-                memberList.getMember(memberID).setActiveMember(true);
-            case 5:
-                memberList.getMember(memberID).setPhone(2222222);
-            case 6:
-                memberList.getMember(memberID).setEmail("");
-            case 7:
-                memberList.getMember(memberID).setAdress("");
-        }
-    }
     public void editMemberName(int memberID, String name){
         memberList.getMember(memberID).setName(name);
     }
