@@ -89,6 +89,13 @@ public class ViewController {
         memberController.addMember(name, age, gender, active, phonenumber, Email, address, isCompetitionSwimmer); // new
     }
 
+    public void deleteMember(){
+        Scanner removemember = new Scanner(System.in);
+        System.out.println("Enter the ID of the member to be removed");
+        int membertoberemoved = integerInput();
+        memberController.memberToRemove(membertoberemoved);
+    }
+
     public void printListOfMembers() { // TODO lave en metode der returnere en liste over alle medlemmer;
         printMemberList(memberController.getMemberList());
     }

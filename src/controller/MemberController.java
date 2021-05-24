@@ -61,9 +61,7 @@ public class MemberController {
     public void editMemberIsActiveMember(int memberID, boolean Isactivemember){
         memberList.getMember(memberID).setActiveMember(Isactivemember);
     }
-    public void editMemberPhone(int memberID, int phone){
-        memberList.getMember(memberID).setPhone(phone);
-    }
+    public void editMemberPhone(int memberID, int phone){ memberList.getMember(memberID).setPhone(phone); }
     public void editMemberEmail(int memberID, String email){
         memberList.getMember(memberID).setEmail(email);
     }
@@ -71,9 +69,9 @@ public class MemberController {
         memberList.getMember(memberID).setAdress(adress);
     }
 
-    public void deleteMember() {
-        Scanner removemember = new Scanner(System.in);
-        System.out.println("Enter ID of the person you want to remove");
+    public void memberToRemove(int memberID) {
+        memberList.removeMember(memberID);
+
     }
 
     public Collection<Member> activeMemberList(){
