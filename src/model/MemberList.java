@@ -5,7 +5,7 @@ import java.util.*;
 public class MemberList {
     // @Author Simon Roswall Jørgensen
 
-    // Singleton pattern?
+    // Singleton mønster?
     private MemberList(){
     }
     private static final MemberList instance = new MemberList();
@@ -35,6 +35,10 @@ public class MemberList {
 
     public int getMemberIDCounter(){
         return memberIDCounter;
+    }
+
+    public void setMemberIDCounter(int memberID){
+        this.memberIDCounter = memberID;
     }
 
     public Member getMember(int memberID){

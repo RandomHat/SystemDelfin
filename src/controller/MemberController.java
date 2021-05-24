@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 public class MemberController {
 
+    //
+
     MemberList memberList = MemberList.getInstance();
 
     public Collection<Member> getMemberList(){
@@ -18,10 +20,6 @@ public class MemberController {
 
     public Member getMember(int memberID){
         return memberList.getMember(memberID);
-    }
-
-    public void showMember(int memberID){
-        System.out.println(memberList.getMember(memberID));
     }
 
     public void addMember(String name, int age, String gender, boolean isActiveMember, int phone, String email, String address, boolean isCompetitionSwimmer){
