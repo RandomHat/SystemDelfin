@@ -17,6 +17,9 @@ class ResultTest {
 
         TournamentResult result1 = new TournamentResult(120,new Date(1,1,1),new SwimDiscipline(100,"Crawl"),3,"DK");
         TournamentResult result2 = new TournamentResult(200,new Date(1,1,1),new SwimDiscipline(100,"Crawl"),3,"DK");
+        TournamentResult result3 = new TournamentResult(180,new Date(1,1,1),new SwimDiscipline(100,"Crawl"),3,"DK");
+        TournamentResult result4 = new TournamentResult(160,new Date(1,1,1),new SwimDiscipline(100,"Crawl"),3,"DK");
+        TournamentResult result5 = new TournamentResult(175,new Date(1,1,1),new SwimDiscipline(100,"Crawl"),3,"DK");
 
         //Act
         //Result1 har den hurtigste tid på 120 mod result2 200.
@@ -28,6 +31,17 @@ class ResultTest {
         assertTrue(test1);
         assertTrue(test2);
         assertTrue(test3);
+
+        ArrayList<TournamentResult> list = new ArrayList<>();
+        list.add(result1);
+        list.add(result2);
+        list.add(result3);
+        list.add(result4);
+        list.add(result5);
+
+        System.out.println(list);
+        Collections.sort(list);
+        System.out.println(list);
 
     }
 }

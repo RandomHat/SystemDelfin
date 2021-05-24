@@ -89,13 +89,12 @@ public class CompetitionController {
             }
             // Sortér træningsresultat efter tid
             Collections.sort(resultsForDiscipline);
-            TrainingResult bestTrainingResult = resultsForDiscipline.get(resultsForDiscipline.size()-1);
+            TrainingResult bestTrainingResult = resultsForDiscipline.get(0); //New rettet fra size() - 1 til 0
             competitionSwimmerAndBestResult.add(new MemberAndTrainingResult(member, bestTrainingResult));
         }
 
         Collections.sort(competitionSwimmerAndBestResult);
-        Collections.reverse(competitionSwimmerAndBestResult);
-
+        //Reverse fjernet
         // Udvælg de fem bedste svømmere i svømmedisciplinen og returner dem
         ArrayList<Member> top5 = new ArrayList<>();
         for (MemberAndTrainingResult record : competitionSwimmerAndBestResult) {

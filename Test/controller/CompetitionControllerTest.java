@@ -41,7 +41,6 @@ class CompetitionControllerTest {
 
         // Act
         Collection<Member> actualMembers = competitionController.topFiveMembers("crawl");
-
         // Assert
         assertEquals(5, actualMembers.size());
         Member[] expectedMembers = new Member[] {
