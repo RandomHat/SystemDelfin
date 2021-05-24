@@ -2,8 +2,10 @@ package View;
 
 import controller.CompetitionController;
 import controller.MemberController;
+import controller.SaveLoadController;
 import model.*;
 
+import java.io.FileNotFoundException;
 import java.util.Collection;
 import java.util.Date;
 import java.util.InputMismatchException;
@@ -13,7 +15,7 @@ public class ViewController {
 
     private final CompetitionController competitionController = new CompetitionController();
     private final MemberController memberController = new MemberController();
-
+    private final SaveLoadController saveLoadController = new SaveLoadController();
     //#region MainMenu
 
     /**
@@ -30,10 +32,12 @@ public class ViewController {
     /**
      * Main menu Switch
      */
-    public void mainMenu() throws InputMismatchException{
+    public void mainMenu() throws InputMismatchException, FileNotFoundException {
+        saveLoadController.loadMemberList();
         Scanner menuChoice = new Scanner(System.in);
         boolean running = true;
         while(running) {
+            saveLoadController.saveMemberList();
            // mainMenu(); rekursiv, kalder sig selv
             mainMenuText(); //skriver menu
             switch (menuChoice.nextInt()) {
@@ -60,7 +64,7 @@ public class ViewController {
         System.out.println("[3] Back to Main Menu");
     }
 
-    public void addMember(){
+    public void addMember() throws FileNotFoundException {
         newMemberMenuText(); // new, skal have valg af CS ind
         int subMenuChoice = integerInput();
         boolean isCompetitionSwimmer;
@@ -87,6 +91,7 @@ public class ViewController {
         System.out.println("Enter Address");
         String address = stringInput();
         memberController.addMember(name, age, gender, active, phonenumber, Email, address, isCompetitionSwimmer); // new
+        saveLoadController.saveMemberList();
     }
 
     public void deleteMember(){

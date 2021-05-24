@@ -61,12 +61,13 @@ public class CompetitionController {
         // Sortér træningsresultat efter tid.
         // Udvælg de fem bedste svømmere i svømmedisciplinen og returner dem.
 
-        ArrayList<MemberAndTrainingResult> membersWithBestResult = new ArrayList<>();
+            ArrayList<MemberAndTrainingResult> membersWithBestResult = new ArrayList<>();
 
-        for (Member member : listOfCompetitionSwimmers()) {
-            TrainingResult bestResult = member.getSwimmerprofile().findBestTrainingResult(new SwimDiscipline(0000, discipline));
-            membersWithBestResult.add(new MemberAndTrainingResult(member, bestResult));
-        }
+            for (Member member : listOfCompetitionSwimmers()) {
+                TrainingResult bestResult = member.getSwimmerprofile().findBestTrainingResult(new SwimDiscipline(0000, discipline));
+                membersWithBestResult.add(new MemberAndTrainingResult(member, bestResult));
+            }
+
 
         Collections.sort(membersWithBestResult);
         ArrayList<Member> top5 = new ArrayList<>();
@@ -78,7 +79,6 @@ public class CompetitionController {
 
             break;
         }
-
         return top5;
     }
 
