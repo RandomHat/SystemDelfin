@@ -24,9 +24,8 @@ public class MemberController {
         System.out.println(memberList.getMember(memberID));
     }
 
-    public void addMember(String name, String dateOfBirth, String gender, boolean isActiveMember, int phone, String email, String address, boolean isCompetitionSwimmer){
-        Member member = new Member(name, dateOfBirth, gender, isActiveMember, phone, email, address, memberList.getMemberIDCounter());
-        member.setCompetitionSwimmer(isCompetitionSwimmer); // new, angiver om medlem er konkurrencesvømmer
+    public void addMember(String name, int age, String gender, boolean isActiveMember, int phone, String email, String address, boolean isCompetitionSwimmer){
+        Member member = new Member(memberList.getMemberIDCounter(), name, age, gender, isActiveMember, phone, email, address, isCompetitionSwimmer);
         memberList.addMember(member);
     }
 
@@ -37,7 +36,7 @@ public class MemberController {
             case 1:
                 memberList.getMember(memberID).setName("blank"); //TODO find ud af at løse scanner input ting.
             case 2:
-                memberList.getMember(memberID).setDateOfBirth("");
+                memberList.getMember(memberID).setAge(1);
             case 3:
                 memberList.getMember(memberID).setGender("");
             case 4:
@@ -53,8 +52,8 @@ public class MemberController {
     public void editMemberName(int memberID, String name){
         memberList.getMember(memberID).setName(name);
     }
-    public void editMemberDateOfBirth(int memberID, String Dateofbirth){
-        memberList.getMember(memberID).setDateOfBirth(Dateofbirth);
+    public void editMemberDateOfBirth(int memberID, int age){
+        memberList.getMember(memberID).setAge(age);
     }
     public void editMemberGender(int memberID, String gender){
         memberList.getMember(memberID).setGender(gender);

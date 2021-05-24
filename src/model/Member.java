@@ -2,7 +2,7 @@ package model;
 //defining the variables
 public class Member {
     private String name;
-    private String dateofbirth;
+    private int age;
     private String gender;
     private boolean activeMember;
     private int phone;
@@ -12,22 +12,19 @@ public class Member {
     private SwimmerProfile swimmerprofile; //new
     private boolean isCompetitionSwimmer; //new
 
-//constructor - swimmerprofile optional //new
-public Member(String name, String dateofbirth, String gender, boolean isactivemember, int phone, String email, String adress, int id, SwimmerProfile swimmerprofile){
-    this(name, dateofbirth, gender, isactivemember, phone, email, adress, id);
-    this.swimmerprofile = swimmerprofile;
-}
-
-//constructor
-public Member(String name, String dateofbirth, String gender, boolean isactivemember, int phone, String email, String adress, int id){
+public Member(int id, String name, int age, String gender, boolean isactivemember, int phone, String email, String adress, boolean isCompetitionSwimmer){
+    this.id = id;
     this.name = name;
-    this.dateofbirth = dateofbirth;
+    this.age = age;
     this.gender = gender;
     this.activeMember = isactivemember;
     this.phone = phone;
     this.email = email;
     this.adress = adress;
-    this.id = id;
+    this.isCompetitionSwimmer = isCompetitionSwimmer;
+    if (isCompetitionSwimmer){
+        this.swimmerprofile = new SwimmerProfile();
+    }
 }
 
 //getters and setters
@@ -37,11 +34,11 @@ public String getName(){
 public void setName(String name){
     this.name = name;
 }
-public String getDateOfBirth(){
-    return dateofbirth;
+public int getAge(){
+    return age;
 }
-public void setDateOfBirth(String dateofbirth){
-    this.dateofbirth = dateofbirth;
+public void setAge(int age){
+    this.age = age;
 }
 public String getGender(){
     return gender;
@@ -80,7 +77,7 @@ public void setId(int id){
     this.id = id;
 }
 @Override
-    public String toString(){return id + " " + name + " " + dateofbirth + " " + gender;}
+    public String toString(){return id + " " + name + " " + age + " " + gender;}
 
     public void setCompetitionSwimmer(boolean competitionSwimmer) { // new added
         isCompetitionSwimmer = competitionSwimmer;

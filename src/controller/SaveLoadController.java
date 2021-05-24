@@ -1,6 +1,5 @@
 package controller;
 
-import model.CompetitionSwimmer;
 import model.Member;
 import model.MemberList;
 
@@ -18,11 +17,7 @@ public class SaveLoadController {
         while(reader.hasNext()){
             String currentLine = reader.nextLine();
             String[] attributes = currentLine.trim().split(";");
-            if (Boolean.parseBoolean(attributes[8])){
-                memberList.addMember(new CompetitionSwimmer(attributes[0],attributes[1],attributes[2],attributes[3],attributes[4],attributes[5],attributes[6],attributes[7]));
-            }
-            else
-                memberList.addMember(new Member(attributes[0],attributes[1],attributes[2],attributes[3],attributes[4],attributes[5],attributes[6],attributes[7]));
+
         }
     }
 
@@ -35,7 +30,7 @@ public class SaveLoadController {
     }
 
     public String convertToSaveString(Member member){
-        return member.getId() + ";" + member.getName() + ";" + member.getDateOfBirth() +";" + member.getGender() + ";" + member.isActiveMember() + ";" + member.getPhone() + ";" +
+        return member.getId() + ";" + member.getName() + ";" + member.getAge() +";" + member.getGender() + ";" + member.isActiveMember() + ";" + member.getPhone() + ";" +
             member.getEmail() + ";" + member.getAdress() + ";" + member.isCompetitionSwimmer();
     }
 }

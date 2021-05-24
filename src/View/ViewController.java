@@ -76,7 +76,7 @@ public class ViewController {
         System.out.println("Enter name: ");
         String name = stringInput();
         System.out.println("Enter Birthday: ");
-        String birthday = stringInput();
+        int age = integerInput();
         System.out.println("Enter Gender");
         String gender = stringInput();
         Boolean active = true; //TODO måske bare være active som udgangspunkt?
@@ -86,7 +86,7 @@ public class ViewController {
         String Email =  stringInput();
         System.out.println("Enter Address");
         String address = stringInput();
-        memberController.addMember(name, birthday, gender, active, phonenumber, Email, address, isCompetitionSwimmer); // new
+        memberController.addMember(name, age, gender, active, phonenumber, Email, address, isCompetitionSwimmer); // new
     }
 
     public void printListOfMembers() { // TODO lave en metode der returnere en liste over alle medlemmer;
@@ -267,7 +267,7 @@ public class ViewController {
         int memberID = integerInput();
         // ID - Name - date of birth - gender
         String name = memberController.getMember(memberID).getName();
-        String dateOfBirth = memberController.getMember(memberID).getDateOfBirth();
+        int age = memberController.getMember(memberID).getAge();
         String gender = memberController.getMember(memberID).getGender();
         Boolean isActiveMember = memberController.getMember(memberID).isActiveMember();
         int phone = memberController.getMember(memberID).getPhone();
@@ -335,10 +335,10 @@ public class ViewController {
 
     public void editMemberBirthOfDate(int id){
         System.out.println("New Date Of Birth (YY/MM/DD): ");
-        String dateOfBirth = stringInput();
-        memberController.editMemberDateOfBirth(id,dateOfBirth);
+        int age = integerInput();
+        memberController.editMemberDateOfBirth(id,age);
         System.out.println("Edited to: ");
-        System.out.println(memberController.getMember(id).getDateOfBirth());
+        System.out.println(memberController.getMember(id).getAge());
     }
     public void editMemberGender(int id){
         System.out.println("Gender Change: ");
