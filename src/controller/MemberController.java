@@ -11,43 +11,43 @@ public class MemberController {
 
     //
 
-    MemberList memberList = MemberList.getInstance();
+    private final MemberList MEMBER_LIST = MemberList.getInstance();
 
     public Collection<Member> getMemberList(){
-        return memberList.getMemberList();
+        return MEMBER_LIST.getMemberList();
     }
 
     public Member getMember(int memberID){
-        return memberList.getMember(memberID);
+        return MEMBER_LIST.getMember(memberID);
     }
 
     public void addMember(String name, int age, String gender, boolean isActiveMember, int phone, String email, String address, boolean isCompetitionSwimmer){
-        Member member = new Member(memberList.getMemberIDCounter(), name, age, gender, isActiveMember, phone, email, address, isCompetitionSwimmer);
-        memberList.addMember(member);
+        Member member = new Member(MEMBER_LIST.getMemberIDCounter(), name, age, gender, isActiveMember, phone, email, address, isCompetitionSwimmer);
+        MEMBER_LIST.addMember(member);
     }
 
     public void editMemberName(int memberID, String name){
-        memberList.getMember(memberID).setName(name);
+        MEMBER_LIST.getMember(memberID).setName(name);
     }
     public void editMemberDateOfBirth(int memberID, int age){
-        memberList.getMember(memberID).setAge(age);
+        MEMBER_LIST.getMember(memberID).setAge(age);
     }
     public void editMemberGender(int memberID, String gender){
-        memberList.getMember(memberID).setGender(gender);
+        MEMBER_LIST.getMember(memberID).setGender(gender);
     }
     public void editMemberIsActiveMember(int memberID, boolean Isactivemember){
-        memberList.getMember(memberID).setActiveMember(Isactivemember);
+        MEMBER_LIST.getMember(memberID).setActiveMember(Isactivemember);
     }
-    public void editMemberPhone(int memberID, int phone){ memberList.getMember(memberID).setPhone(phone); }
+    public void editMemberPhone(int memberID, int phone){ MEMBER_LIST.getMember(memberID).setPhone(phone); }
     public void editMemberEmail(int memberID, String email){
-        memberList.getMember(memberID).setEmail(email);
+        MEMBER_LIST.getMember(memberID).setEmail(email);
     }
     public void editMemberAdress(int memberID, String adress){
-        memberList.getMember(memberID).setAdress(adress);
+        MEMBER_LIST.getMember(memberID).setAdress(adress);
     }
 
     public void memberToRemove(int memberID) {
-        memberList.removeMember(memberID);
+        MEMBER_LIST.removeMember(memberID);
 
     }
 
@@ -61,7 +61,7 @@ public class MemberController {
 
     private Collection<Member> sortForActivity(boolean activity){
         List<Member> listToSort = new ArrayList<>();
-        for (Member currentMember: memberList.getMemberList()) {
+        for (Member currentMember: MEMBER_LIST.getMemberList()) {
             if (currentMember.isActiveMember() == activity) {
                 listToSort.add(currentMember);
             }

@@ -4,7 +4,6 @@ public class MemberFee {
 
     /* Author Simon Roswall Jørgensen
     *
-    * Ikke Implementeret
     * */
 
     private double memberFee;

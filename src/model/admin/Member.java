@@ -13,6 +13,7 @@ public class Member {
     private String email;
     private String adress;
     private int id;
+    private MemberFee memberFee;
     private SwimmerProfile swimmerprofile; //new
     private boolean isCompetitionSwimmer; //new
 
@@ -29,6 +30,7 @@ public Member(int id, String name, int age, String gender, boolean isactivemembe
     if (isCompetitionSwimmer){
         this.swimmerprofile = new SwimmerProfile();
     }
+    this.memberFee = new MemberFee(age, isactivemember);
 }
 
 //getters and setters
@@ -79,6 +81,12 @@ public int getId(){
 }
 public void setId(int id){
     this.id = id;
+}
+public double getMemberFee(){
+    return memberFee.getMemberFee();
+}
+public void setMemberFee(){
+    this.memberFee = new MemberFee(this.age, this.activeMember);
 }
 @Override
     public String toString(){return "[" + id + "] " + name + " Age: " + age + " Gender: " + gender;}
