@@ -14,6 +14,7 @@ class ResultTest {
     void compareTo() {
 
         //Arrange
+        //Act
 
         TournamentResult result1 = new TournamentResult(120,new Date(1,1,1),new SwimDiscipline(100,"Crawl"),3,"DK");
         TournamentResult result2 = new TournamentResult(200,new Date(1,1,1),new SwimDiscipline(100,"Crawl"),3,"DK");
@@ -21,7 +22,7 @@ class ResultTest {
         TournamentResult result4 = new TournamentResult(160,new Date(1,1,1),new SwimDiscipline(100,"Crawl"),3,"DK");
         TournamentResult result5 = new TournamentResult(175,new Date(1,1,1),new SwimDiscipline(100,"Crawl"),3,"DK");
 
-        //Act
+
         //Result1 har den hurtigste tid på 120 mod result2 200.
         // laveste tid skal ligge højest oppe på listen.
         boolean test1 = (result1.compareTo(result2) == -1);
