@@ -1,2 +1,15 @@
 memberID;Name;Age;Gender;isactivemember;phone;email;adress;competitionSwimmer
 1;Mark;27;Man;true;12122332;m@m.dk;København;true
+2;Louise;15;Woman;true;12122332;m@m.dk;København;true
+3;Mie;20;Woman;false;12122332;m@m.dk;København;false
+4;Nick;27;Man;true;12122332;m@m.dk;København;true
+5;Lars;27;Man;false;12122332;m@m.dk;København;true
+6;Lærke;27;Woman;true;12122332;m@m.dk;København;true
+7;Simon;27;Man;true;12122332;m@m.dk;København;true
+8;Mads;12;Man;false;12122332;m@m.dk;København;true
+9;Victor;16;Man;true;12122332;m@m.dk;København;false
+10;Nicklas;16;Man;false;12122332;m@m.dk;København;true
+11;Marianne;28;Woman;true;12122332;m@m.dk;København;true
+12;David;18;Man;true;12122332;m@m.dk;København;false
+13;Harry;27;Man;true;12122332;m@m.dk;København;true
+14;Frederik;27;Man;true;12122332;m@m.dk;København;false
