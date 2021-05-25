@@ -8,10 +8,10 @@ public class MemberList {
     // Singleton mønster?
     private MemberList(){
     }
-    private static final MemberList instance = new MemberList();
+    private static final MemberList INSTANCE = new MemberList();
 
     public static MemberList getInstance() {
-        return instance;
+        return INSTANCE;
     }
 
     // Tæller som sørger for unikke memberID'er
