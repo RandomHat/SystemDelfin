@@ -1,4 +1,6 @@
 package model;
+// @author Mads Rasmussen
+
 //defining the variables
 public class Member {
     private String name;

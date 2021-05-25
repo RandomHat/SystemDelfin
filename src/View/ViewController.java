@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 //@author Mark Kaplan Hansen
+//@author Mads Rasmussen
 public class ViewController {
 
     private final CompetitionController competitionController = new CompetitionController();
