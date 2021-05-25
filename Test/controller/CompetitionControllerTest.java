@@ -5,7 +5,6 @@ import model.*;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class CompetitionControllerTest {
@@ -41,6 +40,7 @@ class CompetitionControllerTest {
 
         // Act
         Collection<Member> actualMembers = competitionController.topFiveMembers("crawl");
+
         // Assert
         assertEquals(5, actualMembers.size());
         Member[] expectedMembers = new Member[] {

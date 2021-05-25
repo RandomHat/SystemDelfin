@@ -8,12 +8,12 @@ public class CompetitionController {
 
     private MemberList memberList = MemberList.getInstance();
 
-    //hent CompetitionSwimmer fra liste
+    // Hent CompetitionSwimmer fra liste
     public Member getCompetitionSwimmer(int memberID) {
         return this.memberList.getMember(memberID);
     }
 
-    //lav liste over CompetitionSwimmers
+    // Lav liste over CompetitionSwimmers
     public Collection<Member> listOfCompetitionSwimmers() {
         ArrayList<Member> listOfCompetitionSwimmers = new ArrayList<>();
 
@@ -25,7 +25,7 @@ public class CompetitionController {
         return listOfCompetitionSwimmers;
     }
 
-    //liste over junior CompetitionSwimmers - afgrænsning: alder
+    // Liste over junior CompetitionSwimmers - afgrænsning: alder
     public Collection<Member> juniorTeamList() {
         ArrayList<Member> juniorTeamList = new ArrayList<>();
         for (Member member : listOfCompetitionSwimmers()){
@@ -36,7 +36,7 @@ public class CompetitionController {
         return juniorTeamList;
     }
 
-    // liste over senior CompetitionSwimmers - afgrænsning: alder
+    // Liste over senior CompetitionSwimmers - afgrænsning: alder
     public Collection<Member> seniorTeamList() {
         ArrayList<Member> seniorTeamList = new ArrayList<>();
         for (Member member : listOfCompetitionSwimmers()){
@@ -47,26 +47,24 @@ public class CompetitionController {
         return seniorTeamList;
     }
 
-    //tilføj turneringsresultatresultat til svømmeprofil
+    // Tilføj turneringsresultatresultat til svømmeprofil
     public void addNewTournamentResult(int memberID, TournamentResult tournamentResult) {
-        //hent member/competitionsswimmers svømmeprofil
+        // Hent member/competitionsswimmers svømmeprofil
         SwimmerProfile swimmerProfile = getCompetitionSwimmer(memberID).getSwimmerprofile();
-        //tilføj turneringsresultat til medlems svømmeprofil
+        // Tilføj turneringsresultat til medlems svømmeprofil
         swimmerProfile.logResult(tournamentResult);
     }
 
-    //tilføj træningsresultat til svømmeprofil
+    // Tilføj træningsresultat til svømmeprofil
     public void addNewTrainingResult(int memberID, TrainingResult trainingResult) {
-        //hent member/competitionsswimmers svømmeprofil
+        // Hent member/competitionsswimmers svømmeprofil
         SwimmerProfile swimmerProfile = getCompetitionSwimmer(memberID).getSwimmerprofile();
-        //tilføj træningssresultat til medlems svømmeprofil
+        // Tilføj træningssresultat til medlems svømmeprofil
         swimmerProfile.logResult(trainingResult);
     }
 
-    //liste over top5 træningstid til udtagelse til competition
+    // Liste over top5 træningstid til udtagelse til competition
 
-    // TODO SwimDiscipline i stedet for String:
-    //  public Collection<Member> topFiveMembers(SwimDiscipline discipline) {
     public Collection<Member> topFiveMembers(String discipline) {
         // Hent aktive svømmere og disses svømmeprofiler
         Collection<Member> listOfCompetitionSwimmers = listOfCompetitionSwimmers();
@@ -76,7 +74,7 @@ public class CompetitionController {
 
         for (Member member : listOfCompetitionSwimmers){
             List<TrainingResult> trainingResults = member.getSwimmerprofile().getTrainingResults();
-            // spring svømmere uden træningsresultater over
+            // Spring svømmere uden træningsresultater over
             if (trainingResults.size() == 0) {
                 continue;
             }
@@ -89,12 +87,12 @@ public class CompetitionController {
             }
             // Sortér træningsresultat efter tid
             Collections.sort(resultsForDiscipline);
-            TrainingResult bestTrainingResult = resultsForDiscipline.get(0); //New rettet fra size() - 1 til 0
+            TrainingResult bestTrainingResult = resultsForDiscipline.get(0);
             competitionSwimmerAndBestResult.add(new MemberAndTrainingResult(member, bestTrainingResult));
         }
 
         Collections.sort(competitionSwimmerAndBestResult);
-        //Reverse fjernet
+
         // Udvælg de fem bedste svømmere i svømmedisciplinen og returner dem
         ArrayList<Member> top5 = new ArrayList<>();
         for (MemberAndTrainingResult record : competitionSwimmerAndBestResult) {
