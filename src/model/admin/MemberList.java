@@ -15,7 +15,7 @@ public class MemberList {
     }
 
     // Tæller som sørger for unikke memberID'er
-    int memberIDCounter = 1;
+    private int memberIDCounter = 1;
 
     // <Key, Value> hashmap collection af members så man kan finde Members direkte på memberID.
     private final Map<Integer, Member> memberList = new HashMap<>();
