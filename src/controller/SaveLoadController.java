@@ -1,7 +1,7 @@
 package controller;
 
-import model.Member;
-import model.MemberList;
+import model.admin.Member;
+import model.admin.MemberList;
 
 import java.io.File;
 import java.io.FileNotFoundException;

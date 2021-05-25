@@ -1,4 +1,4 @@
-package model;
+package model.coach;
 
 import java.util.Date;
 //@Author Mark Kaplan Hansen

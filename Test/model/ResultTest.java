@@ -1,5 +1,7 @@
 package model;
 
+import model.coach.SwimDiscipline;
+import model.coach.TournamentResult;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

@@ -1,7 +1,12 @@
 package controller;
 // @Author Lærke
 
-import model.*;
+import model.admin.Member;
+import model.admin.MemberList;
+import model.coach.SwimmerProfile;
+import model.coach.TournamentResult;
+import model.coach.TrainingResult;
+
 import java.util.*;
 
 public class CompetitionController {

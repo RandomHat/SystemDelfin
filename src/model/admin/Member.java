@@ -1,5 +1,7 @@
-package model;
+package model.admin;
 // @author Mads Rasmussen
+
+import model.coach.SwimmerProfile;
 
 //defining the variables
 public class Member {

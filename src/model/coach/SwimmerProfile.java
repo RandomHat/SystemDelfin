@@ -1,4 +1,4 @@
-package model;
+package model.coach;
 // @Author Lærke
 
 import java.util.*;

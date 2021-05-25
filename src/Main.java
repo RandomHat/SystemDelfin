@@ -1,11 +1,6 @@
 import View.ViewController;
-import model.SwimDiscipline;
-import model.TournamentResult;
 
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
 
 public class Main {
 
