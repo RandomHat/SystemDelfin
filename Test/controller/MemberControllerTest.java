@@ -4,9 +4,7 @@ import model.MemberList;
 import model.Member;
 
 import org.junit.jupiter.api.Test;
-
 import java.util.*;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 /* @Author Simon Roswall Jørgensen
