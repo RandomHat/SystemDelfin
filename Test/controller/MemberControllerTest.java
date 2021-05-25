@@ -1,12 +1,10 @@
 package controller;
 
-import model.MemberList;
-import model.Member;
+import model.admin.MemberList;
+import model.admin.Member;
 
 import org.junit.jupiter.api.Test;
-
 import java.util.*;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 /* @Author Simon Roswall Jørgensen

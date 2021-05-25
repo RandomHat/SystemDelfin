@@ -1,7 +1,11 @@
 package controller;
 //@Author Lærke
 
-import model.*;
+import model.admin.Member;
+import model.admin.MemberList;
+import model.coach.SwimDiscipline;
+import model.coach.TrainingResult;
+
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;

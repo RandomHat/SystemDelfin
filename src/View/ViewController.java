@@ -3,7 +3,10 @@ package View;
 import controller.CompetitionController;
 import controller.MemberController;
 import controller.SaveLoadController;
-import model.*;
+import model.admin.Member;
+import model.coach.SwimDiscipline;
+import model.coach.TournamentResult;
+import model.coach.TrainingResult;
 
 import java.io.FileNotFoundException;
 import java.util.Collection;
@@ -11,6 +14,7 @@ import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 //@author Mark Kaplan Hansen
+//@author Mads Rasmussen
 public class ViewController {
 
     private final CompetitionController competitionController = new CompetitionController();
