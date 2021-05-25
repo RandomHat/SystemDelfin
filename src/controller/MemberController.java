@@ -29,7 +29,7 @@ public class MemberController {
     public void editMemberName(int memberID, String name){
         MEMBER_LIST.getMember(memberID).setName(name);
     }
-    public void editMemberDateOfBirth(int memberID, int age){
+    public void editMemberAge(int memberID, int age){
         MEMBER_LIST.getMember(memberID).setAge(age);
     }
     public void editMemberGender(int memberID, String gender){
