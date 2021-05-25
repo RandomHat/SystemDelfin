@@ -23,6 +23,19 @@ public class SwimmerProfile {
         listOfTournamentResults.add(tournamentResultResult);
     }
 
+    public ArrayList<Result> listOfResults(){
+        ArrayList<Result> list = new ArrayList<>();
+
+        for(int i = 0; i< listOfTournamentResults.size();i++){
+            list.add(listOfTournamentResults.get(i));
+        }
+
+        for(int i = 0; i < listOfTrainingResults.size(); i++){
+            list.add(listOfTrainingResults.get(i));
+        }
+
+        return list;
+    }
     //Udvidelsespunkt: Konkurrencesvømmerne har tilknyttet en træner.
     //Udvidelsespunkt: Hver konkurrencesvømmer er desuden registreret i forhold til hvilke svømmediscipliner, svømmeren er aktiv i. competesIn
 

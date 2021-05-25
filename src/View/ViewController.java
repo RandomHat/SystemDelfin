@@ -4,6 +4,7 @@ import controller.CompetitionController;
 import controller.MemberController;
 import controller.SaveLoadController;
 import model.admin.Member;
+import model.coach.Result;
 import model.coach.SwimDiscipline;
 import model.coach.TournamentResult;
 import model.coach.TrainingResult;
@@ -115,10 +116,11 @@ public class ViewController {
      */
     public void coachMenuText(){
         System.out.println("[1] Show Competition Swimmers");
-        System.out.println("[2] Add new Training result");
-        System.out.println("[3] Add new Competition result");
-        System.out.println("[4] Top 5 Swimmers in Discipline");
-        System.out.println("[5] Back to Main Menu");
+        System.out.println("[2] Show Competition Swimmer result");
+        System.out.println("[3] Add new Training result");
+        System.out.println("[4] Add new Competition result");
+        System.out.println("[5] Top 5 Swimmers in Discipline");
+        System.out.println("[6] Back to Main Menu");
     }
 
     public void coachMenu(){
@@ -131,19 +133,27 @@ public class ViewController {
                     printCompetitionSwimmers();
                     break;
                 case 2:
+                    showResults();
+                case 3:
                     addNewResult(false);
                     break;
-                case 3:
+                case 4:
                     addNewResult(true);
                     break;
-                case 4:
+                case 5:
                     printTopFive();
                     break;
-                case 5:
+                case 6:
                     running = false;
                     break;
             }
         }
+    }
+
+    public void showResults(){
+        System.out.println("Enter memberID: ");
+        int memberID = integerInput();
+       printResultList(competitionController.getCompetitionSwimmer(memberID).getSwimmerprofile().listOfResults());
     }
 
     public void addNewResult(boolean isTournamentResult) {
@@ -161,10 +171,10 @@ public class ViewController {
             if(team == 1 || team == 2) {
 
                 if (team == 1) {
-                    // printjuniorTeam(); ej implementeret
+                    printJuniorTeam();
                 }
                 if (team == 2) {
-                   // printSeniorTeam(); ej implementeret
+                   printSeniorTeam();
                 }
                 System.out.println("Enter ID of chosen swimmer: ");
                 memberID = integerInput();
@@ -173,7 +183,7 @@ public class ViewController {
                 type = stringInput();
                 System.out.println("Length in Meters: ");
                 distance = integerInput();
-                System.out.println("Time: ");
+                System.out.println("Time in seconds: ");
                 time = integerInput();
                 System.out.println("Year: ");
                 year = integerInput();
@@ -245,13 +255,13 @@ public class ViewController {
      * showMembersMenu Switch
      */
     public void showMembersMenu() throws InputMismatchException{
-        Scanner menuChoice = new Scanner(System.in);
+
         boolean running = true;
 
             while(running){
                 try{
                     showMembersText();
-                switch (menuChoice.nextInt()) {
+                switch (integerInput()) {
 
                     case 1: // viser member details på ønsket medlem
                         printMemberDetails();
@@ -295,12 +305,11 @@ public class ViewController {
     public void editMember() throws InputMismatchException {
         boolean running = true;
         int id = getMemberID();
-        Scanner menuChoice = new Scanner(System.in);
         memberController.getMember(id);
 
         while (running) {
             editMemberText();
-            switch (menuChoice.nextInt()) {
+            switch (integerInput()) {
                 case 1:
                     editMemberName(id);
                     break;
@@ -406,8 +415,17 @@ public class ViewController {
     //#endregion
 
     //#region Printer Methods
+
+    public void printResultList(Collection<Result> list){
+        TrainingResult[] array = new TrainingResult[list.size()];
+        list.toArray(array);
+        for (int i = 0; i<array.length;i++){
+            System.out.println(array[i]);
+        }
+    }
+
     public void printMemberList(Collection<Member> list){
-        Member[] array = new Member[list.size()];
+        TrainingResult[] array = new TrainingResult[list.size()];
         list.toArray(array);
         for (int i = 0; i<array.length;i++){
             System.out.println(array[i]);
