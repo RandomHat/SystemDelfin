@@ -337,7 +337,7 @@ public class ViewController {
                     editMemberName(id);
                     break;
                 case 2:
-                    editMemberBirthOfDate(id);
+                    editMemberAge(id);
                     break;
                 case 3:
                     editMemberGender(id);
@@ -381,10 +381,10 @@ public class ViewController {
         System.out.println(memberController.getMember(id).getName());
     }
 
-    public void editMemberBirthOfDate(int id){
+    public void editMemberAge(int id){
         System.out.println("Age: ");
         int age = integerInput();
-        memberController.editMemberDateOfBirth(id,age);
+        memberController.editMemberAge(id,age);
         System.out.println("Edited to: ");
         System.out.println(memberController.getMember(id).getAge());
     }
