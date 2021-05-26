@@ -27,7 +27,7 @@ public class TournamentResult extends Result{
 
     @Override
     public String toString(){
-        return "Tournament: " + tournament + "\n" +
+        return  "Tournament: " + tournament + "\n" +
                 "Placement: " + placement + "\n" +
                 super.toString();
     }

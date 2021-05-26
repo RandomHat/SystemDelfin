@@ -32,6 +32,8 @@ public class ViewController {
         System.out.println("[2] Add new member");
         System.out.println("[3] Coach options");
         System.out.println("[4] Exit program" );
+        System.out.println("-------------------------------------------");
+        System.out.println();
     }
 
     /**
@@ -66,6 +68,8 @@ public class ViewController {
         System.out.println("[1] Exerciser");
         System.out.println("[2] Competition Swimmer");
         System.out.println("[3] Back to Main Menu");
+        System.out.println("-------------------------------------------");
+        System.out.println();
     }
 
     public void addMember() throws FileNotFoundException {
@@ -83,7 +87,7 @@ public class ViewController {
 
         System.out.println("Enter name: ");
         String name = stringInput();
-        System.out.println("Enter Birthday: ");
+        System.out.println("Enter Age: ");
         int age = integerInput();
         System.out.println("Enter Gender");
         String gender = stringInput();
@@ -98,15 +102,21 @@ public class ViewController {
         saveLoadController.saveMemberList();
     }
 
-    public void deleteMember(){
+    public void deleteMember() throws FileNotFoundException {
         System.out.println("Enter the ID of the member to be removed");
         int memberToBeRemoved = integerInput();
+        System.out.println(memberController.getMember(memberToBeRemoved) + " has been removed");
         memberController.memberToRemove(memberToBeRemoved);
-        System.out.println("Member ID: " + memberToBeRemoved + " has been removed");
+        saveLoadController.saveMemberList();
+        System.out.println("-------------------------------------------");
+        System.out.println();
+
     }
 
-    public void printListOfMembers() { // TODO lave en metode der returnere en liste over alle medlemmer;
+    public void printListOfMembers() {
         printMemberList(memberController.getMemberList());
+        System.out.println("-------------------------------------------");
+        System.out.println();
     }
     //#endregion
 
@@ -121,6 +131,8 @@ public class ViewController {
         System.out.println("[4] Add new Competition result");
         System.out.println("[5] Top 5 Swimmers in Discipline");
         System.out.println("[6] Back to Main Menu");
+        System.out.println("-------------------------------------------");
+        System.out.println();
     }
 
     public void coachMenu(){
@@ -208,6 +220,8 @@ public class ViewController {
         System.out.println("[1] Junior Team");
         System.out.println("[2] Senior Team");
         System.out.println("[3] Back to Menu");
+        System.out.println("-------------------------------------------");
+        System.out.println();
     }
 
     /**
@@ -236,6 +250,7 @@ public class ViewController {
         String discipline = stringInput();
         printCompetitionList(competitionController.topFiveMembers(discipline));
     }
+
     //#endregion
 
     //#region Members Menu
@@ -249,12 +264,14 @@ public class ViewController {
         System.out.println("[4] Show Active members");
         System.out.println("[5] Show Passive members");
         System.out.println("[6] Back to Main Menu");
+        System.out.println("-------------------------------------------");
+        System.out.println();
     }
 
     /**
      * showMembersMenu Switch
      */
-    public void showMembersMenu() throws InputMismatchException{
+    public void showMembersMenu() throws InputMismatchException, FileNotFoundException {
 
         boolean running = true;
 
@@ -270,7 +287,9 @@ public class ViewController {
                         editMember();
                         break;
                     case 3:
+                        printListOfMembers();
                         deleteMember();
+                        break;
                     case 4: //viser liste med active members
                         printListOfActiveMembers();
                         break;
@@ -301,6 +320,8 @@ public class ViewController {
         System.out.println(memberController.getMember(memberID));//printer members toString();
         System.out.println("Active member: " + isActiveMember + "| Phone: " + phone + " Email: " + email + "\n" +
                 "Address: " + adress);
+        System.out.println("-------------------------------------------");
+        System.out.println();
     }
     public void editMember() throws InputMismatchException {
         boolean running = true;
@@ -308,6 +329,8 @@ public class ViewController {
         memberController.getMember(id);
 
         while (running) {
+            System.out.println(memberController.getMember(id));
+            System.out.println();
             editMemberText();
             switch (integerInput()) {
                 case 1:
@@ -347,6 +370,8 @@ public class ViewController {
         System.out.println("[6] Email");
         System.out.println("[7] Address");
         System.out.println("[8] Return to menu");
+        System.out.println("-------------------------------------------");
+        System.out.println();
     }
     public void editMemberName(int id){
         System.out.println("New name: ");
@@ -385,7 +410,7 @@ public class ViewController {
         int phoneNumber = integerInput();
         memberController.editMemberPhone(id,phoneNumber);
         System.out.println("Edited to: ");
-        memberController.getMember(id).getPhone();
+        System.out.println(memberController.getMember(id).getPhone());
     }
 
     public void editMemberEmail(int id){
@@ -393,7 +418,7 @@ public class ViewController {
         String email = stringInput();
         memberController.editMemberEmail(id,email);
         System.out.println("New Email: ");
-        memberController.getMember(id).getEmail();
+        System.out.println(memberController.getMember(id).getEmail());
     }
 
     public void editMemberAddress(int id){
@@ -401,7 +426,7 @@ public class ViewController {
         String address = stringInput();
         memberController.editMemberAdress(id, address);
         System.out.println("New Address: ");
-        memberController.getMember(id).getAdress();
+        System.out.println(memberController.getMember(id).getAdress());
     }
 
 
@@ -414,10 +439,13 @@ public class ViewController {
 
     //#endregion
 
+
+
     //#region Printer Methods
 
     public void printResultList(Collection<Result> list){
-        TrainingResult[] array = new TrainingResult[list.size()];
+        Result[] array = new Result[list.size()];
+
         list.toArray(array);
         for (int i = 0; i<array.length;i++){
             System.out.println(array[i]);
@@ -425,7 +453,7 @@ public class ViewController {
     }
 
     public void printMemberList(Collection<Member> list){
-        TrainingResult[] array = new TrainingResult[list.size()];
+        Member[] array = new Member[list.size()];
         list.toArray(array);
         for (int i = 0; i<array.length;i++){
             System.out.println(array[i]);

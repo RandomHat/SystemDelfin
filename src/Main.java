@@ -8,6 +8,5 @@ public class Main {
 
         ViewController run = new ViewController();
         run.mainMenu();
-
     }
 }

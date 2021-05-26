@@ -34,7 +34,8 @@ public abstract class Result implements Comparable<Result>{
     }
     @Override
     public String toString(){
-        return "Time: " + time + " discipline: " + getDiscipline();
+        return "Time: " + time + " discipline: " + getDiscipline() + "\n" +
+                "-------------------------------------------";
     }
 
 }
