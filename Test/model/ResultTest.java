@@ -34,17 +34,5 @@ class ResultTest {
         assertTrue(test1);
         assertTrue(test2);
         assertTrue(test3);
-
-        ArrayList<TournamentResult> list = new ArrayList<>();
-        list.add(result1);
-        list.add(result2);
-        list.add(result3);
-        list.add(result4);
-        list.add(result5);
-
-        System.out.println(list);
-        Collections.sort(list);
-        System.out.println(list);
-
     }
 }
